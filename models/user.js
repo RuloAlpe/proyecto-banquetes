@@ -18,6 +18,9 @@ var UserSchema = mongoose.Schema({
     password: {
         required: true,
         type: String
+    },
+    admin: {
+        type: Boolean
     }
 });
 
@@ -28,7 +31,12 @@ module.exports.getUserById = function(id, callback){
 }
 
 module.exports.getUserByUsername = function(username, callback){
-    var query = {username: username};
+    var query = {username: username, admin: false};
+    User.findOne(query, callback);
+}
+
+module.exports.getAdminByUsername = function(username, callback){
+    var query = {username: username, admin: true};
     User.findOne(query, callback);
 }
 

@@ -6,14 +6,13 @@ var jwt = require('jsonwebtoken');
 var User = require('../models/user');
 var config = require('../config/database');
 
-
-router.post('/register', (req, res, next) => {
+router.post('/register-qwerty123-admin', (req, res, next) => {
     let newUser = new User({
         name: req.body.name,
         email: req.body.email,
         username: req.body.username,
         password: req.body.password,
-        admin: false
+        admin: true
     });
 
     User.addUser(newUser, (err, user) => {
@@ -30,7 +29,7 @@ router.post('/authenticate', (req, res, next) => {
     var username = req.body.username;
     var password = req.body.password;
 
-    User.getUserByUsername(username, (err, user) => {
+    User.getAdminByUsername(username, (err, user) => {
         if(err) throw err;
         if(!user){
             return res.json({success: false, msg: 'Usuario no encontrado'});

@@ -21,6 +21,8 @@ var port = 3000;
 
 //Rutas de usuario
 var users = require('./routes/users');
+//Rutas de admin
+var admin = require('./routes/admin');
 
 //es un middleware
 app.use(cors());
@@ -39,6 +41,8 @@ require('./config/passport')(passport);
 
 //localhost/users/
 app.use('/users', users);
+//localhost/admin/
+app.use('/admin', admin);
 
 app.get('/', (req, res) => {
     res.send('Servidor encendido');
