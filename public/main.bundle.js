@@ -88,13 +88,16 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__components_login_admin_login_admin_component__ = __webpack_require__("../../../../../src/app/components/login-admin/login-admin.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__components_dashboard_admin_dashboard_admin_component__ = __webpack_require__("../../../../../src/app/components/dashboard-admin/dashboard-admin.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__components_navbar_admin_navbar_admin_component__ = __webpack_require__("../../../../../src/app/components/navbar-admin/navbar-admin.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__services_auth_admin_service__ = __webpack_require__("../../../../../src/app/services/auth-admin.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__services_validate_service__ = __webpack_require__("../../../../../src/app/services/validate.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__guards_auth_guard__ = __webpack_require__("../../../../../src/app/guards/auth.guard.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__guards_auth_admin_guard__ = __webpack_require__("../../../../../src/app/guards/auth-admin.guard.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_angular2_flash_messages__ = __webpack_require__("../../../../angular2-flash-messages/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_20_angular2_flash_messages__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_entradas_entradas_component__ = __webpack_require__("../../../../../src/app/components/entradas/entradas.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_plato_fuerte_plato_fuerte_component__ = __webpack_require__("../../../../../src/app/components/plato-fuerte/plato-fuerte.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_sopas_sopas_component__ = __webpack_require__("../../../../../src/app/components/sopas/sopas.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__services_auth_admin_service__ = __webpack_require__("../../../../../src/app/services/auth-admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_validate_service__ = __webpack_require__("../../../../../src/app/services/validate.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__guards_auth_guard__ = __webpack_require__("../../../../../src/app/guards/auth.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__guards_auth_admin_guard__ = __webpack_require__("../../../../../src/app/guards/auth-admin.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_angular2_flash_messages__ = __webpack_require__("../../../../angular2-flash-messages/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_23_angular2_flash_messages__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -119,6 +122,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+
 //servicios admin
 
 //servicios user
@@ -133,12 +139,12 @@ var appRoutes = [
     { path: '', component: __WEBPACK_IMPORTED_MODULE_9__components_home_home_component__["a" /* HomeComponent */] },
     { path: 'register', component: __WEBPACK_IMPORTED_MODULE_8__components_register_register_component__["a" /* RegisterComponent */] },
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_7__components_login_login_component__["a" /* LoginComponent */] },
-    { path: 'dashboard', component: __WEBPACK_IMPORTED_MODULE_10__components_dashboard_dashboard_component__["a" /* DashboardComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_18__guards_auth_guard__["a" /* AuthGuard */]] },
-    { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_11__components_profile_profile_component__["a" /* ProfileComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_18__guards_auth_guard__["a" /* AuthGuard */]] },
+    { path: 'dashboard', component: __WEBPACK_IMPORTED_MODULE_10__components_dashboard_dashboard_component__["a" /* DashboardComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__guards_auth_guard__["a" /* AuthGuard */]] },
+    { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_11__components_profile_profile_component__["a" /* ProfileComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_21__guards_auth_guard__["a" /* AuthGuard */]] },
     //admin
     { path: 'admin/register-qwerty123-admin', component: __WEBPACK_IMPORTED_MODULE_8__components_register_register_component__["a" /* RegisterComponent */] },
     { path: 'admin/login', component: __WEBPACK_IMPORTED_MODULE_12__components_login_admin_login_admin_component__["a" /* LoginAdminComponent */] },
-    { path: 'admin/dashboard', component: __WEBPACK_IMPORTED_MODULE_13__components_dashboard_admin_dashboard_admin_component__["a" /* DashboardAdminComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_19__guards_auth_admin_guard__["a" /* AuthAdminGuard */]] }
+    { path: 'admin/dashboard', component: __WEBPACK_IMPORTED_MODULE_13__components_dashboard_admin_dashboard_admin_component__["a" /* DashboardAdminComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__guards_auth_admin_guard__["a" /* AuthAdminGuard */]] }
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -158,21 +164,24 @@ AppModule = __decorate([
             //admin
             __WEBPACK_IMPORTED_MODULE_12__components_login_admin_login_admin_component__["a" /* LoginAdminComponent */],
             __WEBPACK_IMPORTED_MODULE_13__components_dashboard_admin_dashboard_admin_component__["a" /* DashboardAdminComponent */],
-            __WEBPACK_IMPORTED_MODULE_14__components_navbar_admin_navbar_admin_component__["a" /* NavbarAdminComponent */]
+            __WEBPACK_IMPORTED_MODULE_14__components_navbar_admin_navbar_admin_component__["a" /* NavbarAdminComponent */],
+            __WEBPACK_IMPORTED_MODULE_15__components_entradas_entradas_component__["a" /* EntradasComponent */],
+            __WEBPACK_IMPORTED_MODULE_16__components_plato_fuerte_plato_fuerte_component__["a" /* PlatoFuerteComponent */],
+            __WEBPACK_IMPORTED_MODULE_17__components_sopas_sopas_component__["a" /* SopasComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormsModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_http__["HttpModule"],
             __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* RouterModule */].forRoot(appRoutes),
-            __WEBPACK_IMPORTED_MODULE_20_angular2_flash_messages__["FlashMessagesModule"],
+            __WEBPACK_IMPORTED_MODULE_23_angular2_flash_messages__["FlashMessagesModule"],
         ],
         providers: [
-            __WEBPACK_IMPORTED_MODULE_16__services_validate_service__["a" /* ValidateService */],
-            __WEBPACK_IMPORTED_MODULE_17__services_auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_18__guards_auth_guard__["a" /* AuthGuard */],
-            __WEBPACK_IMPORTED_MODULE_15__services_auth_admin_service__["a" /* AuthAdminService */],
-            __WEBPACK_IMPORTED_MODULE_19__guards_auth_admin_guard__["a" /* AuthAdminGuard */]
+            __WEBPACK_IMPORTED_MODULE_19__services_validate_service__["a" /* ValidateService */],
+            __WEBPACK_IMPORTED_MODULE_20__services_auth_service__["a" /* AuthService */],
+            __WEBPACK_IMPORTED_MODULE_21__guards_auth_guard__["a" /* AuthGuard */],
+            __WEBPACK_IMPORTED_MODULE_18__services_auth_admin_service__["a" /* AuthAdminService */],
+            __WEBPACK_IMPORTED_MODULE_22__guards_auth_admin_guard__["a" /* AuthAdminGuard */]
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
     })
@@ -203,7 +212,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/dashboard-admin/dashboard-admin.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar-admin></app-navbar-admin>\n<h2>Logo</h2>\n<!--<div class=\"container-fluid\">\n  <div class=\"row content\">\n    <div class=\"col-sm-3 sidenav hidden-xs\">\n      <h2>Logo</h2>\n      <ul class=\"nav nav-pills nav-stacked\">\n        <li *ngIf=\"authAdminService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['admin/dashboard']\">Dashboard</a></li>\n        <li *ngIf=\"authAdminService.loggedIn()\" [routerLinkActive]=\"['active']\" [routerLinkActiveOptions]=\"{exact:true}\"><a [routerLink]=\"['admin/profile']\">Profile</a></li>      \n        <li *ngIf=\"authAdminService.loggedIn()\"><a (click)=\"onLogoutClick()\" href=\"#\">Logout</a></li>               \n      </ul><br>\n    </div>\n    <br>\n    \n    <div class=\"col-sm-9\">\n      <div class=\"well\">\n        <h4>Dashboard</h4>\n        <p>Some text..</p>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-sm-3\">\n          <div class=\"well\">\n            <h4>Users</h4>\n            <p>1 Million</p> \n          </div>\n        </div>\n        <div class=\"col-sm-3\">\n          <div class=\"well\">\n            <h4>Pages</h4>\n            <p>100 Million</p> \n          </div>\n        </div>\n        <div class=\"col-sm-3\">\n          <div class=\"well\">\n            <h4>Sessions</h4>\n            <p>10 Million</p> \n          </div>\n        </div>\n        <div class=\"col-sm-3\">\n          <div class=\"well\">\n            <h4>Bounce</h4>\n            <p>30%</p> \n          </div>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-sm-4\">\n          <div class=\"well\">\n            <p>Text</p> \n            <p>Text</p> \n            <p>Text</p> \n          </div>\n        </div>\n        <div class=\"col-sm-4\">\n          <div class=\"well\">\n            <p>Text</p> \n            <p>Text</p> \n            <p>Text</p> \n          </div>\n        </div>\n        <div class=\"col-sm-4\">\n          <div class=\"well\">\n            <p>Text</p> \n            <p>Text</p> \n            <p>Text</p> \n          </div>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-sm-8\">\n          <div class=\"well\">\n            <p>Text</p> \n          </div>\n        </div>\n        <div class=\"col-sm-4\">\n          <div class=\"well\">\n            <p>Text</p> \n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<!--<div class=\"panel panel-info col-sm-8\">\n  <div class=\"panel-heading\">\n    <h3 class=\"panel-title\">Generar pedido</h3>\n  </div>\n  <div class=\"panel-body\">\n    Panel dashboard-admin\n\n    <form class=\"form-horizontal\">\n      <fieldset>\n        <legend>Legend</legend>\n        <div class=\"form-group\">\n          <label for=\"inputEmail\" class=\"col-lg-2 control-label\">Email</label>\n          <div class=\"col-lg-10\">\n            <input type=\"text\" class=\"form-control\" id=\"inputEmail\" placeholder=\"Email\">\n          </div>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"inputPassword\" class=\"col-lg-2 control-label\">Password</label>\n          <div class=\"col-lg-10\">\n            <input type=\"password\" class=\"form-control\" id=\"inputPassword\" placeholder=\"Password\">\n            <div class=\"checkbox\">\n              <label>\n                <input type=\"checkbox\"> Checkbox\n              </label>\n            </div>\n          </div>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"textArea\" class=\"col-lg-2 control-label\">Textarea</label>\n          <div class=\"col-lg-10\">\n            <textarea class=\"form-control\" rows=\"3\" id=\"textArea\"></textarea>\n            <span class=\"help-block\">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>\n          </div>\n        </div>\n        <div class=\"form-group\">\n          <label class=\"col-lg-2 control-label\">Radios</label>\n          <div class=\"col-lg-10\">\n            <div class=\"radio\">\n              <label>\n                <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios1\" value=\"option1\" checked=\"\">\n                Option one is this\n              </label>\n            </div>\n            <div class=\"radio\">\n              <label>\n                <input type=\"radio\" name=\"optionsRadios\" id=\"optionsRadios2\" value=\"option2\">\n                Option two can be something else\n              </label>\n            </div>\n          </div>\n        </div>\n        <div class=\"form-group\">\n          <label for=\"select\" class=\"col-lg-2 control-label\">Selects</label>\n          <div class=\"col-lg-10\">\n            <select class=\"form-control\" id=\"select\">\n              <option>1</option>\n              <option>2</option>\n              <option>3</option>\n              <option>4</option>\n              <option>5</option>\n            </select>\n            <br>\n            <select multiple=\"\" class=\"form-control\">\n              <option>1</option>\n              <option>2</option>\n              <option>3</option>\n              <option>4</option>\n              <option>5</option>\n            </select>\n          </div>\n        </div>\n        <div class=\"form-group\">\n          <div class=\"col-lg-10 col-lg-offset-2\">\n            <button type=\"reset\" class=\"btn btn-default\">Cancel</button>\n            <button type=\"submit\" class=\"btn btn-primary\">Submit</button>\n          </div>\n        </div>\n      </fieldset>\n    </form>\n\n  </div>\n</div>-->\n"
+module.exports = "<app-navbar-admin></app-navbar-admin>\n<div class=\"container-fluid\">\n  <div class=\"row content\">\n    <div class=\"col-sm-9\">\n      <div class=\"well\">\n        <h4>Dashboard</h4>\n        <p>Some text..</p>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-sm-3\">\n          <div class=\"well\">\n            <h4>Users</h4>\n            <p>1 Million</p> \n          </div>\n        </div>\n        <div class=\"col-sm-3\">\n          <div class=\"well\">\n            <h4>Pages</h4>\n            <p>100 Million</p> \n          </div>\n        </div>\n        <div class=\"col-sm-3\">\n          <div class=\"well\">\n            <h4>Sessions</h4>\n            <p>10 Million</p> \n          </div>\n        </div>\n        <div class=\"col-sm-3\">\n          <div class=\"well\">\n            <h4>Bounce</h4>\n            <p>30%</p> \n          </div>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-sm-4\">\n          <div class=\"well\">\n            <app-entradas></app-entradas>\n          </div>\n        </div>\n        <div class=\"col-sm-4\">\n          <div class=\"well\">\n            <app-sopas></app-sopas>\n          </div>\n        </div>\n        <div class=\"col-sm-4\">\n          <div class=\"well\">\n            <app-plato-fuerte></app-plato-fuerte> \n          </div>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-sm-8\">\n          <div class=\"well\">\n            <p>Text</p> \n          </div>\n        </div>\n        <div class=\"col-sm-4\">\n          <div class=\"well\">\n            <p>Text</p> \n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -318,6 +327,77 @@ DashboardComponent = __decorate([
 ], DashboardComponent);
 
 //# sourceMappingURL=dashboard.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/entradas/entradas.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/entradas/entradas.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<h4>Entradas</h4>\n<form (submit)=\"agregarEntrada($event)\">\n  <div class=\"form-group\">\n    <input type=\"text\" [(ngModel)]=\"title\" name=\"title\" class=\"form-control\" placeholder=\"Agregar Entrada\">\n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n</form>\n<br>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\">Entradas disponibles</div>\n  <div class=\"panel-body\" *ngFor=\"let entrada of entradas\">\n    <div class=\"col-sm-7\">\n        {{entrada}}        \n    </div>\n    <div class=\"col-sm-5\">\n        <button type=\"button\" class=\"btn btn-default btn-xs\">\n          <span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span>     \n        </button>\n        <button type=\"button\" class=\"btn btn-default btn-xs\">  \n          <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>\n        </button>\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/entradas/entradas.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EntradasComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var EntradasComponent = (function () {
+    function EntradasComponent() {
+        this.entradas = [
+            'entrada1',
+            'entrada2',
+            'entrada3'
+        ];
+    }
+    EntradasComponent.prototype.ngOnInit = function () {
+    };
+    EntradasComponent.prototype.agregarEntrada = function (event) {
+        event.preventDefault();
+        this.entradas.push(this.title);
+        this.title = '';
+    };
+    return EntradasComponent;
+}());
+EntradasComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-entradas',
+        template: __webpack_require__("../../../../../src/app/components/entradas/entradas.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/entradas/entradas.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], EntradasComponent);
+
+//# sourceMappingURL=entradas.component.js.map
 
 /***/ }),
 
@@ -718,6 +798,77 @@ var _a, _b, _c;
 
 /***/ }),
 
+/***/ "../../../../../src/app/components/plato-fuerte/plato-fuerte.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/plato-fuerte/plato-fuerte.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<h4>Plato Fuerte</h4>\n<form (submit)=\"agregarGuisado($event)\">\n  <div class=\"form-group\">\n    <input type=\"text\" [(ngModel)]=\"title\" name=\"title\" class=\"form-control\" placeholder=\"Agregar Entrada\">\n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n</form>\n<br>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\">Plato fuerte disponibles</div>\n  <div class=\"panel-body\" *ngFor=\"let guisado of guisados\">\n    <div class=\"col-sm-7\">\n        {{guisado}}        \n    </div>\n    <div class=\"col-sm-5\">\n        <button type=\"button\" class=\"btn btn-default btn-xs\">\n          <span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span>     \n        </button>\n        <button type=\"button\" class=\"btn btn-default btn-xs\">  \n          <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>\n        </button>\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/plato-fuerte/plato-fuerte.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PlatoFuerteComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var PlatoFuerteComponent = (function () {
+    function PlatoFuerteComponent() {
+        this.guisados = [
+            'plato fuerte 1',
+            'plato fuerte 2',
+            'plato fuerte 3'
+        ];
+    }
+    PlatoFuerteComponent.prototype.ngOnInit = function () {
+    };
+    PlatoFuerteComponent.prototype.agregarGuisado = function (event) {
+        event.preventDefault();
+        this.guisados.push(this.title);
+        this.title = '';
+    };
+    return PlatoFuerteComponent;
+}());
+PlatoFuerteComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-plato-fuerte',
+        template: __webpack_require__("../../../../../src/app/components/plato-fuerte/plato-fuerte.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/plato-fuerte/plato-fuerte.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], PlatoFuerteComponent);
+
+//# sourceMappingURL=plato-fuerte.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/components/profile/profile.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -895,6 +1046,77 @@ RegisterComponent = __decorate([
 
 var _a, _b, _c, _d;
 //# sourceMappingURL=register.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/sopas/sopas.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/sopas/sopas.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<h4>Sopas</h4>\n<form (submit)=\"agregarSopa($event)\">\n  <div class=\"form-group\">\n    <input type=\"text\" [(ngModel)]=\"title\" name=\"title\" class=\"form-control\" placeholder=\"Agregar Entrada\">\n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n</form>\n<br>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\">Sopas disponibles</div>\n  <div class=\"panel-body\" *ngFor=\"let sopa of sopas\">\n    <div class=\"col-sm-7\">\n        {{sopa}}        \n    </div>\n    <div class=\"col-sm-5\">\n        <button type=\"button\" class=\"btn btn-default btn-xs\">\n          <span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span>     \n        </button>\n        <button type=\"button\" class=\"btn btn-default btn-xs\">  \n          <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>\n        </button>\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/sopas/sopas.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SopasComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var SopasComponent = (function () {
+    function SopasComponent() {
+        this.sopas = [
+            'sopa 1',
+            'sopa 2',
+            'sopa 3'
+        ];
+    }
+    SopasComponent.prototype.ngOnInit = function () {
+    };
+    SopasComponent.prototype.agregarSopa = function (event) {
+        event.preventDefault();
+        this.sopas.push(this.title);
+        this.title = '';
+    };
+    return SopasComponent;
+}());
+SopasComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-sopas',
+        template: __webpack_require__("../../../../../src/app/components/sopas/sopas.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/sopas/sopas.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], SopasComponent);
+
+//# sourceMappingURL=sopas.component.js.map
 
 /***/ }),
 
