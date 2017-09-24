@@ -212,7 +212,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/dashboard-admin/dashboard-admin.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar-admin></app-navbar-admin>\n<div class=\"container-fluid\">\n  <div class=\"row content\">\n    <div class=\"col-sm-9\">\n      <div class=\"well\">\n        <h4>Dashboard</h4>\n        <p>Some text..</p>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-sm-3\">\n          <div class=\"well\">\n            <h4>Users</h4>\n            <p>1 Million</p> \n          </div>\n        </div>\n        <div class=\"col-sm-3\">\n          <div class=\"well\">\n            <h4>Pages</h4>\n            <p>100 Million</p> \n          </div>\n        </div>\n        <div class=\"col-sm-3\">\n          <div class=\"well\">\n            <h4>Sessions</h4>\n            <p>10 Million</p> \n          </div>\n        </div>\n        <div class=\"col-sm-3\">\n          <div class=\"well\">\n            <h4>Bounce</h4>\n            <p>30%</p> \n          </div>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-sm-4\">\n          <div class=\"well\">\n            <app-entradas></app-entradas>\n          </div>\n        </div>\n        <div class=\"col-sm-4\">\n          <div class=\"well\">\n            <app-sopas></app-sopas>\n          </div>\n        </div>\n        <div class=\"col-sm-4\">\n          <div class=\"well\">\n            <app-plato-fuerte></app-plato-fuerte> \n          </div>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-sm-8\">\n          <div class=\"well\">\n            <p>Text</p> \n          </div>\n        </div>\n        <div class=\"col-sm-4\">\n          <div class=\"well\">\n            <p>Text</p> \n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
+module.exports = "<app-navbar-admin></app-navbar-admin>\n<div class=\"container-fluid\">\n  <div class=\"row content\">\n    <div class=\"col-sm-9\">\n      <!--<div class=\"well\">\n        <h4>Dashboard</h4>\n        <p>Some text..</p>\n      </div>-->\n      <div class=\"row\">\n        <div class=\"col-sm-3\">\n          <div class=\"well\">\n            <h4>Users</h4>\n            <p>1 Million</p> \n          </div>\n        </div>\n        <div class=\"col-sm-3\">\n          <div class=\"well\">\n            <h4>Pages</h4>\n            <p>100 Million</p> \n          </div>\n        </div>\n        <div class=\"col-sm-3\">\n          <div class=\"well\">\n            <h4>Sessions</h4>\n            <p>10 Million</p> \n          </div>\n        </div>\n        <div class=\"col-sm-3\">\n          <div class=\"well\">\n            <h4>Bounce</h4>\n            <p>30%</p> \n          </div>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-sm-6\">\n          <div class=\"well\">\n            <app-entradas></app-entradas>\n          </div>\n        </div>\n        <div class=\"col-sm-6\">\n          <div class=\"well\">\n            <app-sopas></app-sopas>\n          </div>\n        </div>\n        <div class=\"col-sm-6\">\n          <div class=\"well\">\n            <app-plato-fuerte></app-plato-fuerte> \n          </div>\n        </div>\n      </div>\n      <div class=\"row\">\n        <div class=\"col-sm-8\">\n          <div class=\"well\">\n            <p>Text</p> \n          </div>\n        </div>\n        <div class=\"col-sm-4\">\n          <div class=\"well\">\n            <p>Text</p> \n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -351,7 +351,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/entradas/entradas.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h4>Entradas</h4>\n<form (submit)=\"agregarEntrada($event)\">\n  <div class=\"form-group\">\n    <input type=\"text\" [(ngModel)]=\"title\" name=\"title\" class=\"form-control\" placeholder=\"Agregar Entrada\">\n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n</form>\n<br>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\">Entradas disponibles</div>\n  <div class=\"panel-body\" *ngFor=\"let entrada of entradas\">\n    <div class=\"col-sm-7\">\n        {{entrada}}        \n    </div>\n    <div class=\"col-sm-5\">\n        <button type=\"button\" class=\"btn btn-default btn-xs\">\n          <span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span>     \n        </button>\n        <button type=\"button\" class=\"btn btn-default btn-xs\">  \n          <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>\n        </button>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<h4>Entradas</h4>\n<form (submit)=\"agregarEntrada($event)\">\n  <div class=\"form-group\">\n    <input type=\"text\" [(ngModel)]=\"title\" name=\"title\" class=\"form-control\" placeholder=\"Agregar Entrada\">\n    <input type=\"text\" [(ngModel)]=\"precioNuevo\" name=\"precioNuevo\" class=\"form-control\" placeholder=\"Agregar precio por persona\">\n    \n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n</form>\n<br>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\">Entradas disponibles</div>\n  <table class=\"table table-hover\">\n    <thead>\n      <tr>\n        <th>Nombre</th>\n        <th>Costo persona</th>\n        <th></th>        \n      </tr>\n    </thead>\n    <tbody *ngFor=\"let entrada of entradas\">\n      <tr>\n        <td>\n          {{entrada.title}}\n        </td>\n        <td>\n          $ {{entrada.precio}}\n        </td>\n        <td> \n          <button type=\"button\" class=\"btn btn-default btn-xs\">\n            <span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span>     \n          </button>\n          <button type=\"button\" class=\"btn btn-default btn-xs\">  \n            <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>\n          </button>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n"
 
 /***/ }),
 
@@ -371,20 +371,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+var ENTRADAS = [
+    { title: 'entrada1', precio: 10 },
+    { title: 'entrada2', precio: 15 },
+    { title: 'entrada3', precio: 13 }
+];
 var EntradasComponent = (function () {
     function EntradasComponent() {
-        this.entradas = [
-            'entrada1',
-            'entrada2',
-            'entrada3'
-        ];
+        this.entradas = ENTRADAS;
     }
     EntradasComponent.prototype.ngOnInit = function () {
     };
     EntradasComponent.prototype.agregarEntrada = function (event) {
         event.preventDefault();
-        this.entradas.push(this.title);
+        var nuevaEntrada = {
+            title: this.title,
+            precio: this.precioNuevo
+        };
+        this.entradas.push(nuevaEntrada);
         this.title = '';
+        this.precioNuevo = null;
+        //this.precios.push(this.precioNuevo);
     };
     return EntradasComponent;
 }());
@@ -819,7 +826,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/plato-fuerte/plato-fuerte.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h4>Plato Fuerte</h4>\n<form (submit)=\"agregarGuisado($event)\">\n  <div class=\"form-group\">\n    <input type=\"text\" [(ngModel)]=\"title\" name=\"title\" class=\"form-control\" placeholder=\"Agregar Entrada\">\n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n</form>\n<br>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\">Plato fuerte disponibles</div>\n  <div class=\"panel-body\" *ngFor=\"let guisado of guisados\">\n    <div class=\"col-sm-7\">\n        {{guisado}}        \n    </div>\n    <div class=\"col-sm-5\">\n        <button type=\"button\" class=\"btn btn-default btn-xs\">\n          <span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span>     \n        </button>\n        <button type=\"button\" class=\"btn btn-default btn-xs\">  \n          <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>\n        </button>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<h4>Plato Fuerte</h4>\n<form (submit)=\"agregarGuisado($event)\">\n  <div class=\"form-group\">\n    <input type=\"text\" [(ngModel)]=\"title\" name=\"title\" class=\"form-control\" placeholder=\"Agregar Entrada\">\n    <input type=\"text\" [(ngModel)]=\"precioNuevo\" name=\"precioNuevo\" class=\"form-control\" placeholder=\"Agregar precio por persona\">    \n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n</form>\n<br>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\">Plato fuerte disponibles</div>\n  <table class=\"table table-hover\">\n    <thead>\n      <tr>\n        <th>Nombre</th>\n        <th>Costo persona</th>\n        <th></th>        \n      </tr>\n    </thead>\n    <tbody *ngFor=\"let platoFuerte of platosFuertes\">\n      <tr>\n        <td>\n          {{platoFuerte.title}}\n        </td>\n        <td>\n          $ {{platoFuerte.precio}}\n        </td>\n        <td> \n          <button type=\"button\" class=\"btn btn-default btn-xs\">\n            <span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span>     \n          </button>\n          <button type=\"button\" class=\"btn btn-default btn-xs\">  \n            <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>\n          </button>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n"
 
 /***/ }),
 
@@ -839,20 +846,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+var PLATOFUERTE = [
+    { title: 'plato fuerte 1', precio: 10 },
+    { title: 'plato fuerte 2', precio: 15 },
+    { title: 'plato fuerte 3', precio: 13 }
+];
 var PlatoFuerteComponent = (function () {
     function PlatoFuerteComponent() {
-        this.guisados = [
-            'plato fuerte 1',
-            'plato fuerte 2',
-            'plato fuerte 3'
-        ];
+        this.platosFuertes = PLATOFUERTE;
     }
     PlatoFuerteComponent.prototype.ngOnInit = function () {
     };
     PlatoFuerteComponent.prototype.agregarGuisado = function (event) {
         event.preventDefault();
-        this.guisados.push(this.title);
+        var nuevoplato = {
+            title: this.title,
+            precio: this.precioNuevo
+        };
+        this.platosFuertes.push(nuevoplato);
         this.title = '';
+        this.precioNuevo = null;
     };
     return PlatoFuerteComponent;
 }());
@@ -1070,7 +1083,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/sopas/sopas.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h4>Sopas</h4>\n<form (submit)=\"agregarSopa($event)\">\n  <div class=\"form-group\">\n    <input type=\"text\" [(ngModel)]=\"title\" name=\"title\" class=\"form-control\" placeholder=\"Agregar Entrada\">\n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n</form>\n<br>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\">Sopas disponibles</div>\n  <div class=\"panel-body\" *ngFor=\"let sopa of sopas\">\n    <div class=\"col-sm-7\">\n        {{sopa}}        \n    </div>\n    <div class=\"col-sm-5\">\n        <button type=\"button\" class=\"btn btn-default btn-xs\">\n          <span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span>     \n        </button>\n        <button type=\"button\" class=\"btn btn-default btn-xs\">  \n          <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>\n        </button>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<h4>Sopas</h4>\n<form (submit)=\"agregarSopa($event)\">\n  <div class=\"form-group\">\n    <input type=\"text\" [(ngModel)]=\"title\" name=\"title\" class=\"form-control\" placeholder=\"Agregar Sopa\">\n    <input type=\"text\" [(ngModel)]=\"precioNuevo\" name=\"precioNuevo\" class=\"form-control\" placeholder=\"Agregar precio por persona\">\n    \n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n</form>\n<br>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\">Sopas disponibles</div>\n  <table class=\"table table-hover\">\n    <thead>\n      <tr>\n        <th>Nombre</th>\n        <th>Costo persona</th>\n        <th></th>        \n      </tr>\n    </thead>\n    <tbody *ngFor=\"let sopa of sopas\">\n      <tr>\n        <td>\n          {{sopa.title}}\n        </td>\n        <td>\n          $ {{sopa.precio}}\n        </td>\n        <td> \n          <button type=\"button\" class=\"btn btn-default btn-xs\">\n            <span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span>     \n          </button>\n          <button type=\"button\" class=\"btn btn-default btn-xs\">  \n            <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>\n          </button>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n"
 
 /***/ }),
 
@@ -1090,20 +1103,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+var SOPAS = [
+    { title: 'sopa 1', precio: 10 },
+    { title: 'sopa 2', precio: 15 },
+    { title: 'sopa 3', precio: 13 }
+];
 var SopasComponent = (function () {
     function SopasComponent() {
-        this.sopas = [
-            'sopa 1',
-            'sopa 2',
-            'sopa 3'
-        ];
+        this.sopas = SOPAS;
     }
     SopasComponent.prototype.ngOnInit = function () {
     };
     SopasComponent.prototype.agregarSopa = function (event) {
         event.preventDefault();
-        this.sopas.push(this.title);
+        var nuevaSopa = {
+            title: this.title,
+            precio: this.precioNuevo
+        };
+        this.sopas.push(nuevaSopa);
         this.title = '';
+        this.precioNuevo = null;
     };
     return SopasComponent;
 }());
