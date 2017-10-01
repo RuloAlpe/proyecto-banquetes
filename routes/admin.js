@@ -4,6 +4,8 @@ var passport = require('passport');
 var jwt = require('jsonwebtoken');
 
 var User = require('../models/user');
+var Platillo = require('../models/platillo');
+
 var config = require('../config/database');
 
 router.post('/register-qwerty123-admin', (req, res, next) => {
@@ -63,5 +65,71 @@ router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res
     res.json({user: req.user});
 });
 
+router.get('/entradas', (req, res, next) => {
+    Platillo.find({tipo:1}, function(err, entradas){
+        if(err){
+            res.status(400);
+            res.json({
+                'error': 'Bad Data. Traer todas las tareas'
+            });
+        }else{
+            res.json(entradas);
+        }
+    });
+});
+
+router.post('/crear-entrada', passport.authenticate('jwt', {session: false}), (req, res, next) => {
+    //console.log(req.body.title);
+    //console.log(req.body.precio);
+    let newEntrada = new Platillo({
+        title: req.body.title,
+        precio: req.body.precio,
+        tipo: 1
+    });
+    newEntrada.save().then(function(entrada){
+        res.json(entrada);        
+    }, function(err){
+        res.status(400);
+        res.json({
+            'error': 'Bad Data. Guardar entremes'
+        });
+    });
+});
+
+router.post('/crear-sopa', passport.authenticate('jwt', {session: false}), (req, res, next) => {
+    //console.log(req.body.title);
+    //console.log(req.body.precio);
+    let newSopa = new Platillo({
+        title: req.body.title,
+        precio: req.body.precio,
+        tipo: 2
+    });
+    newSopa.save().then(function(sopa){
+        res.json(sopa);        
+    }, function(err){
+        res.status(400);
+        res.json({
+            'error': 'Bad Data. Guardar primer tiempo'
+        });
+    });
+});
+
+router.post('/crear-platillo-fuerte', passport.authenticate('jwt', {session: false}), (req, res, next) => {
+    //console.log(req.body.title);
+    //console.log(req.body.precio);
+    let newPlaFuerte = new Platillo({
+        title: req.body.title,
+        precio: req.body.precio,
+        tipo: 3
+    });
+    newPlaFuerte.save().then(function(platilloFuerte){
+        res.json(platilloFuerte);        
+    }, function(err){
+        res.status(400);
+        res.json({
+            'error': 'Bad Data. Guardar segundo tiempo'
+        });
+    });
+});
 
 module.exports = router;
