@@ -363,6 +363,7 @@ module.exports = "<h4>Entradas</h4>\n<form (submit)=\"agregarEntrada($event)\">\
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_platillo_service__ = __webpack_require__("../../../../../src/app/services/platillo.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return EntradasComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -374,27 +375,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var ENTRADAS = [
-    { title: 'entrada1', precio: 10 },
-    { title: 'entrada2', precio: 15 },
-    { title: 'entrada3', precio: 13 }
-];
+
 var EntradasComponent = (function () {
-    function EntradasComponent() {
-        this.entradas = ENTRADAS;
+    function EntradasComponent(platilloService) {
+        this.platilloService = platilloService;
     }
     EntradasComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.platilloService.getEntradas().subscribe(function (entradas) {
+            _this.entradas = entradas;
+        });
     };
     EntradasComponent.prototype.agregarEntrada = function (event) {
+        var _this = this;
         event.preventDefault();
         var nuevaEntrada = {
             title: this.title,
             precio: this.precioNuevo
         };
-        this.entradas.push(nuevaEntrada);
-        this.title = '';
-        this.precioNuevo = null;
-        //this.precios.push(this.precioNuevo);
+        this.platilloService.addEntrada(nuevaEntrada).subscribe(function (nuevaEntrada) {
+            _this.entradas.push(nuevaEntrada);
+            _this.title = '';
+            _this.precioNuevo = null;
+        });
     };
     return EntradasComponent;
 }());
@@ -404,9 +407,10 @@ EntradasComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/components/entradas/entradas.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/entradas/entradas.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_platillo_service__["a" /* PlatilloService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_platillo_service__["a" /* PlatilloService */]) === "function" && _a || Object])
 ], EntradasComponent);
 
+var _a;
 //# sourceMappingURL=entradas.component.js.map
 
 /***/ }),
@@ -838,6 +842,7 @@ module.exports = "<h4>Plato Fuerte</h4>\n<form (submit)=\"agregarGuisado($event)
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_platillo_service__ = __webpack_require__("../../../../../src/app/services/platillo.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PlatoFuerteComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -849,26 +854,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var PLATOFUERTE = [
-    { title: 'plato fuerte 1', precio: 10 },
-    { title: 'plato fuerte 2', precio: 15 },
-    { title: 'plato fuerte 3', precio: 13 }
-];
+
 var PlatoFuerteComponent = (function () {
-    function PlatoFuerteComponent() {
-        this.platosFuertes = PLATOFUERTE;
+    function PlatoFuerteComponent(platilloService) {
+        this.platilloService = platilloService;
     }
     PlatoFuerteComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.platilloService.getPlatosFuertes().subscribe(function (platosFuertes) {
+            _this.platosFuertes = platosFuertes;
+        });
     };
     PlatoFuerteComponent.prototype.agregarGuisado = function (event) {
+        var _this = this;
         event.preventDefault();
         var nuevoplato = {
             title: this.title,
             precio: this.precioNuevo
         };
-        this.platosFuertes.push(nuevoplato);
-        this.title = '';
-        this.precioNuevo = null;
+        this.platilloService.addPlatoFuerte(nuevoplato).subscribe(function (nuevoplato) {
+            _this.platosFuertes.push(nuevoplato);
+            _this.title = '';
+            _this.precioNuevo = null;
+        });
     };
     return PlatoFuerteComponent;
 }());
@@ -878,9 +886,10 @@ PlatoFuerteComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/components/plato-fuerte/plato-fuerte.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/plato-fuerte/plato-fuerte.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_platillo_service__["a" /* PlatilloService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_platillo_service__["a" /* PlatilloService */]) === "function" && _a || Object])
 ], PlatoFuerteComponent);
 
+var _a;
 //# sourceMappingURL=plato-fuerte.component.js.map
 
 /***/ }),
@@ -1095,6 +1104,7 @@ module.exports = "<h4>Sopas</h4>\n<form (submit)=\"agregarSopa($event)\">\n  <di
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_platillo_service__ = __webpack_require__("../../../../../src/app/services/platillo.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SopasComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1106,26 +1116,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
-var SOPAS = [
-    { title: 'sopa 1', precio: 10 },
-    { title: 'sopa 2', precio: 15 },
-    { title: 'sopa 3', precio: 13 }
-];
+
 var SopasComponent = (function () {
-    function SopasComponent() {
-        this.sopas = SOPAS;
+    function SopasComponent(platilloService) {
+        this.platilloService = platilloService;
     }
     SopasComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.platilloService.getSopas().subscribe(function (sopas) {
+            _this.sopas = sopas;
+        });
     };
     SopasComponent.prototype.agregarSopa = function (event) {
+        var _this = this;
         event.preventDefault();
         var nuevaSopa = {
             title: this.title,
             precio: this.precioNuevo
         };
-        this.sopas.push(nuevaSopa);
-        this.title = '';
-        this.precioNuevo = null;
+        this.platilloService.addSopa(nuevaSopa).subscribe(function (nuevaSopa) {
+            _this.sopas.push(nuevaSopa);
+            _this.title = '';
+            _this.precioNuevo = null;
+        });
     };
     return SopasComponent;
 }());
@@ -1135,9 +1148,10 @@ SopasComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/components/sopas/sopas.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/sopas/sopas.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_platillo_service__["a" /* PlatilloService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_platillo_service__["a" /* PlatilloService */]) === "function" && _a || Object])
 ], SopasComponent);
 
+var _a;
 //# sourceMappingURL=sopas.component.js.map
 
 /***/ }),
@@ -1421,7 +1435,48 @@ var PlatilloService = (function () {
         this.http = http;
     }
     PlatilloService.prototype.getEntradas = function () {
-        return this.http.get('http://localhost:3000/admin/entradas').map(function (res) { return res.json(); });
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
+        this.loadToken();
+        headers.append('Authorization', this.authToken);
+        return this.http.get('http://localhost:3000/admin/entradas', { headers: headers }).map(function (res) { return res.json(); });
+    };
+    PlatilloService.prototype.addEntrada = function (newEntrada) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
+        this.loadToken();
+        headers.append('Authorization', this.authToken);
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('http://localhost:3000/admin/crear-entrada', JSON.stringify(newEntrada), { headers: headers }).map(function (res) { return res.json(); });
+    };
+    PlatilloService.prototype.getSopas = function () {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
+        this.loadToken();
+        headers.append('Authorization', this.authToken);
+        return this.http.get('http://localhost:3000/admin/sopas', { headers: headers }).map(function (res) { return res.json(); });
+    };
+    PlatilloService.prototype.addSopa = function (newSopa) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
+        this.loadToken();
+        headers.append('Authorization', this.authToken);
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('http://localhost:3000/admin/crear-sopa', JSON.stringify(newSopa), { headers: headers }).map(function (res) { return res.json(); });
+    };
+    PlatilloService.prototype.getPlatosFuertes = function () {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
+        this.loadToken();
+        headers.append('Authorization', this.authToken);
+        return this.http.get('http://localhost:3000/admin/platos-fuertes', { headers: headers }).map(function (res) { return res.json(); });
+    };
+    PlatilloService.prototype.addPlatoFuerte = function (newPlatoFuerte) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
+        this.loadToken();
+        headers.append('Authorization', this.authToken);
+        headers.append('Content-Type', 'application/json');
+        return this.http.post('http://localhost:3000/admin/crear-plato-fuerte', JSON.stringify(newPlatoFuerte), { headers: headers }).map(function (res) { return res.json(); });
+    };
+    //Token para autentificacion.
+    PlatilloService.prototype.loadToken = function () {
+        var token = localStorage.getItem('id_token');
+        this.authToken = token;
     };
     return PlatilloService;
 }());

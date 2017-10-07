@@ -65,8 +65,11 @@ router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res
     res.json({user: req.user});
 });
 
-router.get('/entradas', (req, res, next) => {
-    Platillo.find({tipo:1}, function(err, entradas){
+//CRUD DE PLATILLOS EN GENERAL
+
+//CRUD ENTRADAS
+router.get('/entradas', passport.authenticate('jwt', {session: false}), (req, res, next) => {
+    Platillo.find({tipo:1}, (err, entradas) => {
         if(err){
             res.status(400);
             res.json({
@@ -96,6 +99,20 @@ router.post('/crear-entrada', passport.authenticate('jwt', {session: false}), (r
     });
 });
 
+//CRUD SOPAS
+router.get('/sopas', passport.authenticate('jwt', {session: false}), (req, res, next) => {
+    Platillo.find({tipo:2}, (err, sopas) => {
+        if(err){
+            res.status(400);
+            res.json({
+                'error': 'Error get sopas'
+            });
+        }else{
+            res.json(sopas);
+        }
+    });
+});
+
 router.post('/crear-sopa', passport.authenticate('jwt', {session: false}), (req, res, next) => {
     //console.log(req.body.title);
     //console.log(req.body.precio);
@@ -114,7 +131,20 @@ router.post('/crear-sopa', passport.authenticate('jwt', {session: false}), (req,
     });
 });
 
-router.post('/crear-platillo-fuerte', passport.authenticate('jwt', {session: false}), (req, res, next) => {
+router.get('/platos-fuertes', passport.authenticate('jwt', {session: false}), (req, res, next) => {
+    Platillo.find({tipo:3}, (err, platosFuertes) => {
+        if(err){
+            res.status(400);
+            res.json({
+                'error': 'Error get platos fuertes'
+            });
+        }else{
+            res.json(platosFuertes);
+        }
+    });
+});
+
+router.post('/crear-plato-fuerte', passport.authenticate('jwt', {session: false}), (req, res, next) => {
     //console.log(req.body.title);
     //console.log(req.body.precio);
     let newPlaFuerte = new Platillo({
@@ -131,5 +161,6 @@ router.post('/crear-platillo-fuerte', passport.authenticate('jwt', {session: fal
         });
     });
 });
+
 
 module.exports = router;
