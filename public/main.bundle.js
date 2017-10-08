@@ -354,7 +354,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/entradas/entradas.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h4>Entradas</h4>\n<form (submit)=\"agregarEntrada($event)\">\n  <div class=\"form-group\">\n    <input type=\"text\" [(ngModel)]=\"title\" name=\"title\" class=\"form-control\" placeholder=\"Agregar Entrada\">\n    <input type=\"text\" [(ngModel)]=\"precioNuevo\" name=\"precioNuevo\" class=\"form-control\" placeholder=\"Agregar precio por persona\">\n    \n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n</form>\n<br>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\">Entradas disponibles</div>\n  <table class=\"table table-hover\">\n    <thead>\n      <tr>\n        <th>Nombre</th>\n        <th>Costo persona</th>\n        <th></th>        \n      </tr>\n    </thead>\n    <tbody *ngFor=\"let entrada of entradas\">\n      <tr>\n        <td>\n          {{entrada.title}}\n        </td>\n        <td>\n          $ {{entrada.precio}}\n        </td>\n        <td> \n          <button type=\"button\" class=\"btn btn-default btn-xs\">\n            <span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span>     \n          </button>\n          <button type=\"button\" class=\"btn btn-default btn-xs\">  \n            <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>\n          </button>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n"
+module.exports = "<h4>Entradas</h4>\n<form (submit)=\"agregarEntrada($event)\">\n  <div class=\"form-group\">\n    <input type=\"text\" [(ngModel)]=\"title\" name=\"title\" class=\"form-control\" placeholder=\"Agregar Entrada\">\n    <input type=\"text\" [(ngModel)]=\"precioNuevo\" name=\"precioNuevo\" class=\"form-control\" placeholder=\"Agregar precio por persona\">\n    \n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n</form>\n<br>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\">Entradas disponibles</div>\n  <table class=\"table table-hover\">\n    <thead>\n      <tr>\n        <th>Nombre</th>\n        <th>Costo persona</th>\n        <th></th>        \n      </tr>\n    </thead>\n    <tbody *ngFor=\"let entrada of entradas\">\n      <tr>\n        <td>\n          {{entrada.title}}\n        </td>\n        <td>\n          $ {{entrada.precio}}\n        </td>\n        <td> \n          <button type=\"button\" class=\"btn btn-default btn-xs\">\n            <span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span>     \n          </button>\n          <button type=\"button\" (click)=\"deleteEntrada(entrada._id)\" class=\"btn btn-default btn-xs\">  \n            <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>\n          </button>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n"
 
 /***/ }),
 
@@ -397,6 +397,19 @@ var EntradasComponent = (function () {
             _this.entradas.push(nuevaEntrada);
             _this.title = '';
             _this.precioNuevo = null;
+        });
+    };
+    EntradasComponent.prototype.deleteEntrada = function (id) {
+        var entradas = this.entradas;
+        this.platilloService.deletePlatillo(id).subscribe(function (data) {
+            //cuando eliminar algo mongo responde {ok: 1, n: 1} si lo hizo correctamente
+            if (data.n == 1) {
+                for (var i = 0; i < entradas.length; i++) {
+                    if (entradas[i]._id == id) {
+                        entradas.splice(i, 1);
+                    }
+                }
+            }
         });
     };
     return EntradasComponent;
@@ -833,7 +846,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/plato-fuerte/plato-fuerte.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h4>Plato Fuerte</h4>\n<form (submit)=\"agregarGuisado($event)\">\n  <div class=\"form-group\">\n    <input type=\"text\" [(ngModel)]=\"title\" name=\"title\" class=\"form-control\" placeholder=\"Agregar Entrada\">\n    <input type=\"text\" [(ngModel)]=\"precioNuevo\" name=\"precioNuevo\" class=\"form-control\" placeholder=\"Agregar precio por persona\">    \n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n</form>\n<br>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\">Plato fuerte disponibles</div>\n  <table class=\"table table-hover\">\n    <thead>\n      <tr>\n        <th>Nombre</th>\n        <th>Costo persona</th>\n        <th></th>        \n      </tr>\n    </thead>\n    <tbody *ngFor=\"let platoFuerte of platosFuertes\">\n      <tr>\n        <td>\n          {{platoFuerte.title}}\n        </td>\n        <td>\n          $ {{platoFuerte.precio}}\n        </td>\n        <td> \n          <button type=\"button\" class=\"btn btn-default btn-xs\">\n            <span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span>     \n          </button>\n          <button type=\"button\" class=\"btn btn-default btn-xs\">  \n            <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>\n          </button>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n"
+module.exports = "<h4>Plato Fuerte</h4>\n<form (submit)=\"agregarGuisado($event)\">\n  <div class=\"form-group\">\n    <input type=\"text\" [(ngModel)]=\"title\" name=\"title\" class=\"form-control\" placeholder=\"Agregar Entrada\">\n    <input type=\"text\" [(ngModel)]=\"precioNuevo\" name=\"precioNuevo\" class=\"form-control\" placeholder=\"Agregar precio por persona\">    \n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n</form>\n<br>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\">Plato fuerte disponibles</div>\n  <table class=\"table table-hover\">\n    <thead>\n      <tr>\n        <th>Nombre</th>\n        <th>Costo persona</th>\n        <th></th>        \n      </tr>\n    </thead>\n    <tbody *ngFor=\"let platoFuerte of platosFuertes\">\n      <tr>\n        <td>\n          {{platoFuerte.title}}\n        </td>\n        <td>\n          $ {{platoFuerte.precio}}\n        </td>\n        <td> \n          <button type=\"button\" class=\"btn btn-default btn-xs\">\n            <span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span>     \n          </button>\n          <button type=\"button\" (click)=\"deletePlatoFuerte(platoFuerte._id)\" class=\"btn btn-default btn-xs\">  \n            <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>\n          </button>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n"
 
 /***/ }),
 
@@ -876,6 +889,19 @@ var PlatoFuerteComponent = (function () {
             _this.platosFuertes.push(nuevoplato);
             _this.title = '';
             _this.precioNuevo = null;
+        });
+    };
+    PlatoFuerteComponent.prototype.deletePlatoFuerte = function (id) {
+        var platosFuertes = this.platosFuertes;
+        this.platilloService.deletePlatillo(id).subscribe(function (data) {
+            //cuando eliminar algo mongo responde {ok: 1, n: 1} si lo hizo correctamente
+            if (data.n == 1) {
+                for (var i = 0; i < platosFuertes.length; i++) {
+                    if (platosFuertes[i]._id == id) {
+                        platosFuertes.splice(i, 1);
+                    }
+                }
+            }
         });
     };
     return PlatoFuerteComponent;
@@ -1095,7 +1121,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/sopas/sopas.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h4>Sopas</h4>\n<form (submit)=\"agregarSopa($event)\">\n  <div class=\"form-group\">\n    <input type=\"text\" [(ngModel)]=\"title\" name=\"title\" class=\"form-control\" placeholder=\"Agregar Sopa\">\n    <input type=\"text\" [(ngModel)]=\"precioNuevo\" name=\"precioNuevo\" class=\"form-control\" placeholder=\"Agregar precio por persona\">\n    \n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n</form>\n<br>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\">Sopas disponibles</div>\n  <table class=\"table table-hover\">\n    <thead>\n      <tr>\n        <th>Nombre</th>\n        <th>Costo persona</th>\n        <th></th>        \n      </tr>\n    </thead>\n    <tbody *ngFor=\"let sopa of sopas\">\n      <tr>\n        <td>\n          {{sopa.title}}\n        </td>\n        <td>\n          $ {{sopa.precio}}\n        </td>\n        <td> \n          <button type=\"button\" class=\"btn btn-default btn-xs\">\n            <span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span>     \n          </button>\n          <button type=\"button\" class=\"btn btn-default btn-xs\">  \n            <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>\n          </button>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n"
+module.exports = "<h4>Sopas</h4>\n<form (submit)=\"agregarSopa($event)\">\n  <div class=\"form-group\">\n    <input type=\"text\" [(ngModel)]=\"title\" name=\"title\" class=\"form-control\" placeholder=\"Agregar Sopa\">\n    <input type=\"text\" [(ngModel)]=\"precioNuevo\" name=\"precioNuevo\" class=\"form-control\" placeholder=\"Agregar precio por persona\">\n    \n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n</form>\n<br>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\">Sopas disponibles</div>\n  <table class=\"table table-hover\">\n    <thead>\n      <tr>\n        <th>Nombre</th>\n        <th>Costo persona</th>\n        <th></th>        \n      </tr>\n    </thead>\n    <tbody *ngFor=\"let sopa of sopas\">\n      <tr>\n        <td>\n          {{sopa.title}}\n        </td>\n        <td>\n          $ {{sopa.precio}}\n        </td>\n        <td> \n          <button type=\"button\" class=\"btn btn-default btn-xs\">\n            <span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span>     \n          </button>\n          <button type=\"button\" (click)=\"deleteSopa(sopa._id)\" class=\"btn btn-default btn-xs\">  \n            <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>\n          </button>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n"
 
 /***/ }),
 
@@ -1138,6 +1164,19 @@ var SopasComponent = (function () {
             _this.sopas.push(nuevaSopa);
             _this.title = '';
             _this.precioNuevo = null;
+        });
+    };
+    SopasComponent.prototype.deleteSopa = function (id) {
+        var sopas = this.sopas;
+        this.platilloService.deletePlatillo(id).subscribe(function (data) {
+            //cuando eliminar algo mongo responde {ok: 1, n: 1} si lo hizo correctamente
+            if (data.n == 1) {
+                for (var i = 0; i < sopas.length; i++) {
+                    if (sopas[i]._id == id) {
+                        sopas.splice(i, 1);
+                    }
+                }
+            }
         });
     };
     return SopasComponent;
@@ -1472,6 +1511,9 @@ var PlatilloService = (function () {
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
         return this.http.post('http://localhost:3000/admin/crear-plato-fuerte', JSON.stringify(newPlatoFuerte), { headers: headers }).map(function (res) { return res.json(); });
+    };
+    PlatilloService.prototype.deletePlatillo = function (id) {
+        return this.http.delete('http://localhost:3000/admin/platillo/' + id).map(function (res) { return res.json(); });
     };
     //Token para autentificacion.
     PlatilloService.prototype.loadToken = function () {

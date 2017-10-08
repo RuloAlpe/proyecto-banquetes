@@ -162,5 +162,18 @@ router.post('/crear-plato-fuerte', passport.authenticate('jwt', {session: false}
     });
 });
 
+//Eliminar un solo platillo
+router.delete('/platillo/:id', (req, res, next) => {
+    Platillo.remove({'_id':req.params.id}, function(err, platillo){
+        if(err){
+            res.status(400);
+            res.json({
+                'error': 'Bad Data. Eliminar un solo platillo'
+            });
+        }else{
+            res.json(platillo);
+        }
+    });
+});
 
 module.exports = router;
