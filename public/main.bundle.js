@@ -280,7 +280,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".panel-custom{\r\n    background-color: #0D47A1;\r\n    color: white;\r\n}\r\n\r\n.panel-custom-2{\r\n    background-color: #00796B;\r\n    color: white;\r\n}\r\n\r\n.panel-custom .panel-title,.panel-custom-2 .panel-title{\r\n    font-size: 27pt;\r\n    padding: 20px;\r\n}", ""]);
 
 // exports
 
@@ -293,7 +293,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/dashboard/dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\n<div class=\"container\">\n    <h2 class=\"page-header\">Dashboard</h2>\n    <p>Bievenido al Dashboard</p>\n</div>"
+module.exports = "<app-navbar></app-navbar>\n<div class=\"container\">\n    <div class=\"row\">\n        <div class=\"col-lg-8 col-lg-offset-2 col-md-8 offset-md-2 col-sm-12 col-md-8 col-md-offset-2\">\n            <div class=\"panel-group\" id=\"accordion\">\n                <div class=\"panel\">\n                    <div class=\"panel-heading  panel-custom\">\n                        <h2 class=\"panel-title\">\n                            <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse1\">\n                                Quieres crear una peticion de banquete? Da click aquí\n                            </a>\n                        </h2>\n                    </div>\n                    <div id=\"collapse1\" class=\"panel-collapse collapse\">\n                        <div class=\"panel-body\">\n                            <h1>Cotizacion de banquetes</h1>\n                            <!-- <p class=\"lead\"></p> -->\n                            <div class=\"text-center\">\n                                <form (ngSubmit)=\"crearPedido($event)\">\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"well\">\n                                            <h4>Seleccionar Entrada</h4>\n                                            <select [(ngModel)]=\"selectEntrada\" name=\"selectEntrada\" class=\"form-control\">\n                                                <option *ngFor=\"let entrada of entradas\" [ngValue]=\"entrada\">{{entrada.title}}</option>\n                                            </select>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"well\">\n                                            <h4>Seleccionar Entrada</h4>\n                                            <select [(ngModel)]=\"selectSopa\" name=\"selectSopa\" class=\"form-control\">\n                                                <option *ngFor=\"let sopa of sopas\" [ngValue]=\"sopa\">{{sopa.title}}</option>\n                                            </select>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"well\">\n                                            <h4>Seleccionar Entrada</h4>\n                                            <select [(ngModel)]=\"selectPlatoFuerte\" name=\"selectPlatoFuerte\" class=\"form-control\">\n                                                <option *ngFor=\"let platoFuerte of platosFuertes\" [ngValue]=\"platoFuerte\">{{platoFuerte.title}}</option>\n                                            </select>\n                                        </div>\n                                    </div>\n                                    <p>Cantidad de personas <input type=\"text\" [(ngModel)]=\"personas\" name=\"personas\"></p>\n                                    <p>Precio total <input type=\"text\" [(ngModel)]=\"precio\" name=\"precio\"></p>                                    \n                                    <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">                                    \n                                </form>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n\n                <div class=\"panel\">\n                    <div class=\"panel-heading  panel-custom-2\">\n                        <h4 class=\"panel-title\">\n                            <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse2\">\n                                Cotizaciones realizadas\n                            </a>\n                        </h4>\n                    </div>\n                    <div id=\"collapse2\" class=\"panel-collapse collapse  in\">\n                        <div class=\"panel-body\">       \n                            <div class=\"row\">\n                                <div class=\"col-md-12\">\n                                    <p class=\"alert alert-danger\">No se ha realizado ningun pedido</p>\n                                </div>     \n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n        </div>   \n    </div>\n</div>"
 
 /***/ }),
 
@@ -302,6 +302,7 @@ module.exports = "<app-navbar></app-navbar>\n<div class=\"container\">\n    <h2 
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_platillo_service__ = __webpack_require__("../../../../../src/app/services/platillo.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DashboardComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -313,10 +314,36 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var DashboardComponent = (function () {
-    function DashboardComponent() {
+    function DashboardComponent(platilloService) {
+        this.platilloService = platilloService;
     }
     DashboardComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.platilloService.getEntradas().subscribe(function (entradas) {
+            _this.entradas = entradas;
+        });
+        this.platilloService.getSopas().subscribe(function (sopas) {
+            _this.sopas = sopas;
+        });
+        this.platilloService.getPlatosFuertes().subscribe(function (platosFuertes) {
+            _this.platosFuertes = platosFuertes;
+        });
+    };
+    DashboardComponent.prototype.ngDoCheck = function () {
+        if (this.selectEntrada && this.selectSopa && this.selectPlatoFuerte && this.personas) {
+            var precioEntrada = this.selectEntrada.precio * this.personas;
+            var precioSopa = this.selectSopa.precio * this.personas;
+            var precioPlatoFuerte = this.selectPlatoFuerte.precio * this.personas;
+            this.precio = precioEntrada + precioSopa + precioPlatoFuerte;
+        }
+    };
+    DashboardComponent.prototype.crearPedido = function (event) {
+        event.preventDefault();
+        console.log(this.selectEntrada);
+        console.log(this.selectSopa);
+        console.log(this.selectPlatoFuerte);
     };
     return DashboardComponent;
 }());
@@ -326,9 +353,10 @@ DashboardComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/components/dashboard/dashboard.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/dashboard/dashboard.component.css")]
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_platillo_service__["a" /* PlatilloService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_platillo_service__["a" /* PlatilloService */]) === "function" && _a || Object])
 ], DashboardComponent);
 
+var _a;
 //# sourceMappingURL=dashboard.component.js.map
 
 /***/ }),
@@ -354,7 +382,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/entradas/entradas.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h4>Entradas</h4>\n<form (submit)=\"agregarEntrada($event)\">\n  <div class=\"form-group\">\n    <input type=\"text\" [(ngModel)]=\"title\" name=\"title\" class=\"form-control\" placeholder=\"Agregar Entrada\">\n    <input type=\"text\" [(ngModel)]=\"precioNuevo\" name=\"precioNuevo\" class=\"form-control\" placeholder=\"Agregar precio por persona\">\n    \n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n</form>\n<br>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\">Entradas disponibles</div>\n  <table class=\"table table-hover\">\n    <thead>\n      <tr>\n        <th>Nombre</th>\n        <th>Costo persona</th>\n        <th></th>        \n      </tr>\n    </thead>\n    <tbody *ngFor=\"let entrada of entradas\">\n      <tr>\n        <td>\n          {{entrada.title}}\n        </td>\n        <td>\n          $ {{entrada.precio}}\n        </td>\n        <td> \n          <button type=\"button\" class=\"btn btn-default btn-xs\">\n            <span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span>     \n          </button>\n          <button type=\"button\" (click)=\"deleteEntrada(entrada._id)\" class=\"btn btn-default btn-xs\">  \n            <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>\n          </button>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n"
+module.exports = "<h4>Entradas</h4>\n<form (submit)=\"agregarEntrada($event)\">\n  <div class=\"form-group\">\n    <input type=\"text\" [(ngModel)]=\"title\" name=\"title\" class=\"form-control\" placeholder=\"Agregar Entrada\">\n    <input type=\"text\" [(ngModel)]=\"precioNuevo\" name=\"precioNuevo\" class=\"form-control\" placeholder=\"Agregar precio por persona\"> \n  </div>\n  <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n</form>\n<br>\n<div class=\"panel panel-default\">\n  <div class=\"panel-heading\">Entradas disponibles</div>\n  <table class=\"table table-hover\">\n    <thead>\n      <tr>\n        <th>Nombre</th>\n        <th>Costo persona</th>\n        <th></th>        \n      </tr>\n    </thead>\n    <tbody *ngFor=\"let entrada of entradas\">\n      <tr>\n        <td>\n          {{entrada.title}}\n        </td>\n        <td>\n          $ {{entrada.precio}}\n        </td>\n        <td> \n          <button type=\"button\" class=\"btn btn-default btn-xs\">\n            <span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span>     \n          </button>\n          <button type=\"button\" (click)=\"deleteEntrada(entrada._id)\" class=\"btn btn-default btn-xs\">  \n            <span class=\"glyphicon glyphicon-remove\" aria-hidden=\"true\"></span>\n          </button>\n        </td>\n      </tr>\n    </tbody>\n  </table>\n</div>\n"
 
 /***/ }),
 
