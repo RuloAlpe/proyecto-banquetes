@@ -17,7 +17,7 @@ mongoose.connection.on('error', (err) => {
 });
 
 var app = express();
-var port = 3000;
+var port = 8080;
 
 //Rutas de usuario
 var users = require('./routes/users');
