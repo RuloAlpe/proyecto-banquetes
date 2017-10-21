@@ -91,14 +91,15 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__components_entradas_entradas_component__ = __webpack_require__("../../../../../src/app/components/entradas/entradas.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__components_plato_fuerte_plato_fuerte_component__ = __webpack_require__("../../../../../src/app/components/plato-fuerte/plato-fuerte.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__components_sopas_sopas_component__ = __webpack_require__("../../../../../src/app/components/sopas/sopas.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__services_auth_admin_service__ = __webpack_require__("../../../../../src/app/services/auth-admin.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_platillo_service__ = __webpack_require__("../../../../../src/app/services/platillo.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_validate_service__ = __webpack_require__("../../../../../src/app/services/validate.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__guards_auth_guard__ = __webpack_require__("../../../../../src/app/guards/auth.guard.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__guards_auth_admin_guard__ = __webpack_require__("../../../../../src/app/guards/auth-admin.guard.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_angular2_flash_messages__ = __webpack_require__("../../../../angular2-flash-messages/index.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_24_angular2_flash_messages__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__components_register_admin_register_admin_component__ = __webpack_require__("../../../../../src/app/components/register-admin/register-admin.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__services_auth_admin_service__ = __webpack_require__("../../../../../src/app/services/auth-admin.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__services_platillo_service__ = __webpack_require__("../../../../../src/app/services/platillo.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__services_validate_service__ = __webpack_require__("../../../../../src/app/services/validate.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__guards_auth_guard__ = __webpack_require__("../../../../../src/app/guards/auth.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__guards_auth_admin_guard__ = __webpack_require__("../../../../../src/app/guards/auth-admin.guard.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_angular2_flash_messages__ = __webpack_require__("../../../../angular2-flash-messages/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_25_angular2_flash_messages__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -126,6 +127,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 //servicios admin
 
 
@@ -141,12 +143,12 @@ var appRoutes = [
     { path: '', component: __WEBPACK_IMPORTED_MODULE_9__components_home_home_component__["a" /* HomeComponent */] },
     { path: 'register', component: __WEBPACK_IMPORTED_MODULE_8__components_register_register_component__["a" /* RegisterComponent */] },
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_7__components_login_login_component__["a" /* LoginComponent */] },
-    { path: 'dashboard', component: __WEBPACK_IMPORTED_MODULE_10__components_dashboard_dashboard_component__["a" /* DashboardComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__guards_auth_guard__["a" /* AuthGuard */]] },
-    { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_11__components_profile_profile_component__["a" /* ProfileComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_22__guards_auth_guard__["a" /* AuthGuard */]] },
+    { path: 'dashboard', component: __WEBPACK_IMPORTED_MODULE_10__components_dashboard_dashboard_component__["a" /* DashboardComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_23__guards_auth_guard__["a" /* AuthGuard */]] },
+    { path: 'profile', component: __WEBPACK_IMPORTED_MODULE_11__components_profile_profile_component__["a" /* ProfileComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_23__guards_auth_guard__["a" /* AuthGuard */]] },
     //admin
-    { path: 'admin/register-qwerty123-admin', component: __WEBPACK_IMPORTED_MODULE_8__components_register_register_component__["a" /* RegisterComponent */] },
+    { path: 'admin/register-qwerty123-admin', component: __WEBPACK_IMPORTED_MODULE_18__components_register_admin_register_admin_component__["a" /* RegisterAdminComponent */] },
     { path: 'admin/login', component: __WEBPACK_IMPORTED_MODULE_12__components_login_admin_login_admin_component__["a" /* LoginAdminComponent */] },
-    { path: 'admin/dashboard', component: __WEBPACK_IMPORTED_MODULE_13__components_dashboard_admin_dashboard_admin_component__["a" /* DashboardAdminComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_23__guards_auth_admin_guard__["a" /* AuthAdminGuard */]] }
+    { path: 'admin/dashboard', component: __WEBPACK_IMPORTED_MODULE_13__components_dashboard_admin_dashboard_admin_component__["a" /* DashboardAdminComponent */], canActivate: [__WEBPACK_IMPORTED_MODULE_24__guards_auth_admin_guard__["a" /* AuthAdminGuard */]] }
 ];
 var AppModule = (function () {
     function AppModule() {
@@ -169,22 +171,23 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_14__components_navbar_admin_navbar_admin_component__["a" /* NavbarAdminComponent */],
             __WEBPACK_IMPORTED_MODULE_15__components_entradas_entradas_component__["a" /* EntradasComponent */],
             __WEBPACK_IMPORTED_MODULE_16__components_plato_fuerte_plato_fuerte_component__["a" /* PlatoFuerteComponent */],
-            __WEBPACK_IMPORTED_MODULE_17__components_sopas_sopas_component__["a" /* SopasComponent */]
+            __WEBPACK_IMPORTED_MODULE_17__components_sopas_sopas_component__["a" /* SopasComponent */],
+            __WEBPACK_IMPORTED_MODULE_18__components_register_admin_register_admin_component__["a" /* RegisterAdminComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
             __WEBPACK_IMPORTED_MODULE_1__angular_forms__["a" /* FormsModule */],
             __WEBPACK_IMPORTED_MODULE_2__angular_http__["HttpModule"],
             __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* RouterModule */].forRoot(appRoutes),
-            __WEBPACK_IMPORTED_MODULE_24_angular2_flash_messages__["FlashMessagesModule"],
+            __WEBPACK_IMPORTED_MODULE_25_angular2_flash_messages__["FlashMessagesModule"],
         ],
         providers: [
-            __WEBPACK_IMPORTED_MODULE_20__services_validate_service__["a" /* ValidateService */],
-            __WEBPACK_IMPORTED_MODULE_21__services_auth_service__["a" /* AuthService */],
-            __WEBPACK_IMPORTED_MODULE_22__guards_auth_guard__["a" /* AuthGuard */],
-            __WEBPACK_IMPORTED_MODULE_18__services_auth_admin_service__["a" /* AuthAdminService */],
-            __WEBPACK_IMPORTED_MODULE_23__guards_auth_admin_guard__["a" /* AuthAdminGuard */],
-            __WEBPACK_IMPORTED_MODULE_19__services_platillo_service__["a" /* PlatilloService */]
+            __WEBPACK_IMPORTED_MODULE_21__services_validate_service__["a" /* ValidateService */],
+            __WEBPACK_IMPORTED_MODULE_22__services_auth_service__["a" /* AuthService */],
+            __WEBPACK_IMPORTED_MODULE_23__guards_auth_guard__["a" /* AuthGuard */],
+            __WEBPACK_IMPORTED_MODULE_19__services_auth_admin_service__["a" /* AuthAdminService */],
+            __WEBPACK_IMPORTED_MODULE_24__guards_auth_admin_guard__["a" /* AuthAdminGuard */],
+            __WEBPACK_IMPORTED_MODULE_20__services_platillo_service__["a" /* PlatilloService */]
         ],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
     })
@@ -1023,6 +1026,111 @@ var _a, _b;
 
 /***/ }),
 
+/***/ "../../../../../src/app/components/register-admin/register-admin.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/register-admin/register-admin.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<app-navbar></app-navbar>\n<div class=\"container\">\n  <h2 class=\"page-header\">Register</h2>\n  <form (submit)=\"onRegisterSubmit()\">\n    <div class=\"form-group\">\n      <label>Name</label>\n      <input type=\"text\" [(ngModel)]=\"name\" name=\"name\" class=\"form-control\">\n    </div>\n    <div class=\"form-group\">\n      <label>Username</label>\n      <input type=\"text\" [(ngModel)]=\"username\" name=\"username\" class=\"form-control\">\n    </div>\n    <div class=\"form-group\">\n      <label>Email</label>\n      <input type=\"text\" [(ngModel)]=\"email\" name=\"email\" class=\"form-control\">\n    </div>\n    <div class=\"form-group\">\n      <label>Password</label>\n      <input type=\"password\" [(ngModel)]=\"password\" name=\"password\" class=\"form-control\">\n    </div>\n    <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">\n  </form>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/components/register-admin/register-admin.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_flash_messages__ = __webpack_require__("../../../../angular2-flash-messages/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_angular2_flash_messages___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_angular2_flash_messages__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_validate_service__ = __webpack_require__("../../../../../src/app/services/validate.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_auth_admin_service__ = __webpack_require__("../../../../../src/app/services/auth-admin.service.ts");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterAdminComponent; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var RegisterAdminComponent = (function () {
+    function RegisterAdminComponent(validateService, flashMessages, authAdminService, router) {
+        this.validateService = validateService;
+        this.flashMessages = flashMessages;
+        this.authAdminService = authAdminService;
+        this.router = router;
+    }
+    RegisterAdminComponent.prototype.ngOnInit = function () {
+    };
+    RegisterAdminComponent.prototype.onRegisterSubmit = function () {
+        var _this = this;
+        var user = {
+            name: this.name,
+            username: this.username,
+            email: this.email,
+            password: this.password
+        };
+        //Campos requeridos
+        if (!this.validateService.validateRegister(user)) {
+            this.flashMessages.show("Por favor llena todos los campos", { cssClass: 'alert-danger', timeout: 3000 });
+            return false;
+        }
+        //Validar email
+        if (!this.validateService.validateEmail(user.email)) {
+            this.flashMessages.show("Por favor usa un email valido", { cssClass: 'alert-danger', timeout: 3000 });
+            return false;
+        }
+        //Registro de user en backend
+        this.authAdminService.registerUser(user).subscribe(function (data) {
+            if (data.success) {
+                _this.flashMessages.show("Estas registrado y puedes logearte.", { cssClass: 'alert-success', timeout: 3000 });
+                _this.router.navigate(['/admin/login']);
+            }
+            else {
+                _this.flashMessages.show("Ocurrio un error al registrarse.", { cssClass: 'alert-danger', timeout: 3000 });
+                _this.router.navigate(['/admin/register-qwerty123-admin']);
+            }
+        });
+    };
+    return RegisterAdminComponent;
+}());
+RegisterAdminComponent = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+        selector: 'app-register-admin',
+        template: __webpack_require__("../../../../../src/app/components/register-admin/register-admin.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/components/register-admin/register-admin.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__services_validate_service__["a" /* ValidateService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_validate_service__["a" /* ValidateService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_angular2_flash_messages__["FlashMessagesService"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_angular2_flash_messages__["FlashMessagesService"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__services_auth_admin_service__["a" /* AuthAdminService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__services_auth_admin_service__["a" /* AuthAdminService */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _d || Object])
+], RegisterAdminComponent);
+
+var _a, _b, _c, _d;
+//# sourceMappingURL=register-admin.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/components/register/register.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1345,12 +1453,16 @@ var AuthAdminService = (function () {
         headers.append('Content-Type', 'application/json');
         return this.http.post('http://13.59.166.130:8080/admin/register-qwerty123-admin', user, { headers: headers })
             .map(function (res) { return res.json(); });
+        //return this.http.post('http://localhost/admin/register-qwerty123-admin', user, {headers})
+        //  .map(res => res.json());
     };
     AuthAdminService.prototype.authenticateAdmin = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
         return this.http.post('http://13.59.166.130:8080/admin/authenticate', user, { headers: headers })
             .map(function (res) { return res.json(); });
+        //return this.http.post('http://localhost:8080/admin/authenticate', user, {headers})
+        //  .map(res => res.json());
     };
     AuthAdminService.prototype.getProfile = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
@@ -1359,6 +1471,8 @@ var AuthAdminService = (function () {
         headers.append('Content-Type', 'application/json');
         return this.http.get('http://13.59.166.130:8080/admin/profile', { headers: headers })
             .map(function (res) { return res.json(); });
+        //return this.http.get('http://localhost:8080/admin/profile', {headers})
+        //  .map(res => res.json());
     };
     AuthAdminService.prototype.storeAdminData = function (token, user) {
         var valorAdmin = true;
@@ -1431,12 +1545,16 @@ var AuthService = (function () {
         headers.append('Content-Type', 'application/json');
         return this.http.post('http://13.59.166.130:8080/users/register', user, { headers: headers })
             .map(function (res) { return res.json(); });
+        //return this.http.post('http://localhost:8080/users/register', user, {headers})
+        //  .map(res => res.json());
     };
     AuthService.prototype.authenticateUser = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
         return this.http.post('http://13.59.166.130:8080/users/authenticate', user, { headers: headers })
             .map(function (res) { return res.json(); });
+        //return this.http.post('http://localhost:8080/users/authenticate', user, {headers})
+        //  .map(res => res.json());
     };
     AuthService.prototype.getProfile = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
@@ -1445,6 +1563,8 @@ var AuthService = (function () {
         headers.append('Content-Type', 'application/json');
         return this.http.get('http://13.59.166.130:8080/users/profile', { headers: headers })
             .map(function (res) { return res.json(); });
+        //return this.http.get('http://localhost:8080/users/profile', {headers})
+        //  .map(res => res.json());
     };
     AuthService.prototype.storeUSerData = function (token, user) {
         localStorage.setItem('id_token', token);
@@ -1506,6 +1626,7 @@ var PlatilloService = (function () {
         this.loadToken();
         headers.append('Authorization', this.authToken);
         return this.http.get('http://13.59.166.130:8080/admin/entradas', { headers: headers }).map(function (res) { return res.json(); });
+        //return this.http.get('http://localhost:8080/admin/entradas', {headers: headers}).map(res => res.json());    
     };
     PlatilloService.prototype.addEntrada = function (newEntrada) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
@@ -1513,12 +1634,14 @@ var PlatilloService = (function () {
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
         return this.http.post('http://13.59.166.130:8080/admin/crear-entrada', JSON.stringify(newEntrada), { headers: headers }).map(function (res) { return res.json(); });
+        //return this.http.post('http://localhost:8080/admin/crear-entrada', JSON.stringify(newEntrada), {headers: headers}).map(res => res.json());    
     };
     PlatilloService.prototype.getSopas = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
         headers.append('Authorization', this.authToken);
         return this.http.get('http://13.59.166.130:8080/admin/sopas', { headers: headers }).map(function (res) { return res.json(); });
+        //return this.http.get('http://localhost:8080/admin/sopas', {headers: headers}).map(res => res.json());
     };
     PlatilloService.prototype.addSopa = function (newSopa) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
@@ -1526,12 +1649,14 @@ var PlatilloService = (function () {
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
         return this.http.post('http://13.59.166.130:8080/admin/crear-sopa', JSON.stringify(newSopa), { headers: headers }).map(function (res) { return res.json(); });
+        //return this.http.post('http://localhost:8080/admin/crear-sopa', JSON.stringify(newSopa), {headers: headers}).map(res => res.json());
     };
     PlatilloService.prototype.getPlatosFuertes = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
         headers.append('Authorization', this.authToken);
         return this.http.get('http://13.59.166.130:8080/admin/platos-fuertes', { headers: headers }).map(function (res) { return res.json(); });
+        //return this.http.get('http://localhost:8080/admin/platos-fuertes', {headers: headers}).map(res => res.json());
     };
     PlatilloService.prototype.addPlatoFuerte = function (newPlatoFuerte) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
@@ -1539,9 +1664,11 @@ var PlatilloService = (function () {
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
         return this.http.post('http://13.59.166.130:8080/admin/crear-plato-fuerte', JSON.stringify(newPlatoFuerte), { headers: headers }).map(function (res) { return res.json(); });
+        //return this.http.post('http://localhost:8080/admin/crear-plato-fuerte', JSON.stringify(newPlatoFuerte), {headers: headers}).map(res => res.json());
     };
     PlatilloService.prototype.deletePlatillo = function (id) {
         return this.http.delete('http://13.59.166.130:8080/admin/platillo/' + id).map(function (res) { return res.json(); });
+        //return this.http.delete('http://localhost:8080/admin/platillo/'+id).map(res => res.json());
     };
     //Token para autentificacion.
     PlatilloService.prototype.loadToken = function () {
