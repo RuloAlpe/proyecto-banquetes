@@ -296,7 +296,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/dashboard/dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\n<div class=\"container\">\n    <div class=\"row\">\n        <div class=\"col-lg-8 col-lg-offset-2 col-md-8 offset-md-2 col-sm-12 col-md-8 col-md-offset-2\">\n            <div class=\"panel-group\" id=\"accordion\">\n                <div class=\"panel\">\n                    <div class=\"panel-heading  panel-custom\">\n                        <h2 class=\"panel-title\">\n                            <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse1\">\n                                Quieres crear una peticion de banquete? Da click aquí\n                            </a>\n                        </h2>\n                    </div>\n                    <div id=\"collapse1\" class=\"panel-collapse collapse\">\n                        <div class=\"panel-body\">\n                            <h1>Cotizacion de banquetes</h1>\n                            <!-- <p class=\"lead\"></p> -->\n                            <div class=\"text-center\">\n                                <form (ngSubmit)=\"crearPedido($event)\">\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"well\">\n                                            <h4>Seleccionar Entrada</h4>\n                                            <select [(ngModel)]=\"selectEntrada\" name=\"selectEntrada\" class=\"form-control\">\n                                                <option *ngFor=\"let entrada of entradas\" [ngValue]=\"entrada\">{{entrada.title}}</option>\n                                            </select>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"well\">\n                                            <h4>Seleccionar Entrada</h4>\n                                            <select [(ngModel)]=\"selectSopa\" name=\"selectSopa\" class=\"form-control\">\n                                                <option *ngFor=\"let sopa of sopas\" [ngValue]=\"sopa\">{{sopa.title}}</option>\n                                            </select>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"well\">\n                                            <h4>Seleccionar Entrada</h4>\n                                            <select [(ngModel)]=\"selectPlatoFuerte\" name=\"selectPlatoFuerte\" class=\"form-control\">\n                                                <option *ngFor=\"let platoFuerte of platosFuertes\" [ngValue]=\"platoFuerte\">{{platoFuerte.title}}</option>\n                                            </select>\n                                        </div>\n                                    </div>\n                                    <p>Cantidad de personas <input type=\"text\" [(ngModel)]=\"personas\" name=\"personas\"></p>\n                                    <p>Precio total <input type=\"text\" [(ngModel)]=\"precio\" name=\"precio\"></p>                                    \n                                    <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">                                    \n                                </form>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n\n                <div class=\"panel\">\n                    <div class=\"panel-heading  panel-custom-2\">\n                        <h4 class=\"panel-title\">\n                            <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse2\">\n                                Cotizaciones realizadas\n                            </a>\n                        </h4>\n                    </div>\n                    <div id=\"collapse2\" class=\"panel-collapse collapse  in\">\n                        <div class=\"panel-body\">       \n                            <div class=\"row\">\n                                <div class=\"col-md-12\">\n                                    <p class=\"alert alert-danger\">No se ha realizado ningun pedido</p>\n                                </div>     \n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n        </div>   \n    </div>\n</div>"
+module.exports = "<app-navbar></app-navbar>\n<div class=\"container\">\n    <div class=\"row\">\n        <div class=\"col-lg-8 col-lg-offset-2 col-md-8 offset-md-2 col-sm-12 col-md-8 col-md-offset-2\">\n            <div class=\"panel-group\" id=\"accordion\">\n                <div class=\"panel\">\n                    <div class=\"panel-heading  panel-custom\">\n                        <h2 class=\"panel-title\">\n                            <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse1\">\n                                Quieres crear una peticion de banquete? Da click aquí\n                            </a>\n                        </h2>\n                    </div>\n                    <div id=\"collapse1\" class=\"panel-collapse collapse\">\n                        <div class=\"panel-body\">\n                            <h1>Cotizacion de banquetes</h1>\n                            <!-- <p class=\"lead\"></p> -->\n                            <div class=\"text-center\">\n                                <form (ngSubmit)=\"crearPedido($event)\">\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"well\">\n                                            <h4>Seleccionar Entrada</h4>\n                                            <select [(ngModel)]=\"selectEntrada\" name=\"selectEntrada\" class=\"form-control\">\n                                                <option *ngFor=\"let entrada of entradas\" [ngValue]=\"entrada\">{{entrada.title}}</option>\n                                            </select>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"well\">\n                                            <h4>Seleccionar Entrada</h4>\n                                            <select [(ngModel)]=\"selectSopa\" name=\"selectSopa\" class=\"form-control\">\n                                                <option *ngFor=\"let sopa of sopas\" [ngValue]=\"sopa\">{{sopa.title}}</option>\n                                            </select>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"well\">\n                                            <h4>Seleccionar Entrada</h4>\n                                            <select [(ngModel)]=\"selectPlatoFuerte\" name=\"selectPlatoFuerte\" class=\"form-control\">\n                                                <option *ngFor=\"let platoFuerte of platosFuertes\" [ngValue]=\"platoFuerte\">{{platoFuerte.title}}</option>\n                                            </select>\n                                        </div>\n                                    </div>\n                                    <p>Cantidad de personas <input type=\"text\" [(ngModel)]=\"personas\" name=\"personas\"></p>\n                                    <p>Precio total <input type=\"text\" [(ngModel)]=\"precio\" name=\"precio\"></p>                                    \n                                    <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">                                    \n                                </form>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n\n                <div class=\"panel\">\n                    <div class=\"panel-heading  panel-custom-2\">\n                        <h4 class=\"panel-title\">\n                            <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse2\">\n                                Cotizaciones realizadas\n                            </a>\n                        </h4>\n                    </div>\n                    <div id=\"collapse2\" class=\"panel-collapse collapse  in\">\n                        <div class=\"panel-body\">       \n                            <div class=\"row\">\n                                <div class=\"col-md-12\">\n                                    <p *ngIf=\"banquetes\" class=\"alert alert-danger\">No se ha realizado ningun pedido</p>\n                                </div>     \n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n        </div>   \n    </div>\n</div>"
 
 /***/ }),
 
@@ -306,6 +306,7 @@ module.exports = "<app-navbar></app-navbar>\n<div class=\"container\">\n    <div
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_platillo_service__ = __webpack_require__("../../../../../src/app/services/platillo.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_auth_service__ = __webpack_require__("../../../../../src/app/services/auth.service.ts");
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DashboardComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -318,9 +319,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var DashboardComponent = (function () {
-    function DashboardComponent(platilloService) {
+    function DashboardComponent(platilloService, authService) {
         this.platilloService = platilloService;
+        this.authService = authService;
+        this.banquetes = [];
     }
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -343,10 +347,23 @@ var DashboardComponent = (function () {
         }
     };
     DashboardComponent.prototype.crearPedido = function (event) {
+        var _this = this;
         event.preventDefault();
-        console.log(this.selectEntrada);
-        console.log(this.selectSopa);
-        console.log(this.selectPlatoFuerte);
+        //Cast de numero a string y despues al asignar al modelo regresar a numero
+        var numPersonas = this.personas.toString();
+        var numPrecio = this.precio.toString();
+        var newBanquete = {
+            entrada: this.selectEntrada._id,
+            sopa: this.selectSopa._id,
+            platoFuerte: this.selectPlatoFuerte._id,
+            personas: parseInt(numPersonas),
+            precio: parseInt(numPrecio),
+            mesas: 5,
+            sillas: 5,
+        };
+        this.authService.guardarBanquete(newBanquete).subscribe(function (nuevoBanquete) {
+            _this.banquetes.push(nuevoBanquete);
+        });
     };
     return DashboardComponent;
 }());
@@ -356,10 +373,10 @@ DashboardComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/components/dashboard/dashboard.component.html"),
         styles: [__webpack_require__("../../../../../src/app/components/dashboard/dashboard.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_platillo_service__["a" /* PlatilloService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_platillo_service__["a" /* PlatilloService */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_platillo_service__["a" /* PlatilloService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_platillo_service__["a" /* PlatilloService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_auth_service__["a" /* AuthService */]) === "function" && _b || Object])
 ], DashboardComponent);
 
-var _a;
+var _a, _b;
 //# sourceMappingURL=dashboard.component.js.map
 
 /***/ }),
@@ -1451,28 +1468,28 @@ var AuthAdminService = (function () {
     AuthAdminService.prototype.registerUser = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('http://13.59.166.130:8080/admin/register-qwerty123-admin', user, { headers: headers })
-            .map(function (res) { return res.json(); });
-        //return this.http.post('http://localhost/admin/register-qwerty123-admin', user, {headers})
+        //return this.http.post('http://13.59.166.130:8080/admin/register-qwerty123-admin', user, {headers})
         //  .map(res => res.json());
+        return this.http.post('http://localhost:8080/admin/register-qwerty123-admin', user, { headers: headers })
+            .map(function (res) { return res.json(); });
     };
     AuthAdminService.prototype.authenticateAdmin = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('http://13.59.166.130:8080/admin/authenticate', user, { headers: headers })
-            .map(function (res) { return res.json(); });
-        //return this.http.post('http://localhost:8080/admin/authenticate', user, {headers})
+        //return this.http.post('http://13.59.166.130:8080/admin/authenticate', user, {headers})
         //  .map(res => res.json());
+        return this.http.post('http://localhost:8080/admin/authenticate', user, { headers: headers })
+            .map(function (res) { return res.json(); });
     };
     AuthAdminService.prototype.getProfile = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
-        return this.http.get('http://13.59.166.130:8080/admin/profile', { headers: headers })
-            .map(function (res) { return res.json(); });
-        //return this.http.get('http://localhost:8080/admin/profile', {headers})
+        //return this.http.get('http://13.59.166.130:8080/admin/profile', {headers})
         //  .map(res => res.json());
+        return this.http.get('http://localhost:8080/admin/profile', { headers: headers })
+            .map(function (res) { return res.json(); });
     };
     AuthAdminService.prototype.storeAdminData = function (token, user) {
         var valorAdmin = true;
@@ -1543,28 +1560,34 @@ var AuthService = (function () {
     AuthService.prototype.registerUser = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('http://13.59.166.130:8080/users/register', user, { headers: headers })
-            .map(function (res) { return res.json(); });
-        //return this.http.post('http://localhost:8080/users/register', user, {headers})
+        //return this.http.post('http://13.59.166.130:8080/users/register', user, {headers})
         //  .map(res => res.json());
+        return this.http.post('http://localhost:8080/users/register', user, { headers: headers })
+            .map(function (res) { return res.json(); });
     };
     AuthService.prototype.authenticateUser = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('http://13.59.166.130:8080/users/authenticate', user, { headers: headers })
-            .map(function (res) { return res.json(); });
-        //return this.http.post('http://localhost:8080/users/authenticate', user, {headers})
+        //return this.http.post('http://13.59.166.130:8080/users/authenticate', user, {headers})
         //  .map(res => res.json());
+        return this.http.post('http://localhost:8080/users/authenticate', user, { headers: headers })
+            .map(function (res) { return res.json(); });
     };
     AuthService.prototype.getProfile = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
-        return this.http.get('http://13.59.166.130:8080/users/profile', { headers: headers })
-            .map(function (res) { return res.json(); });
-        //return this.http.get('http://localhost:8080/users/profile', {headers})
+        //return this.http.get('http://13.59.166.130:8080/users/profile', {headers})
         //  .map(res => res.json());
+        return this.http.get('http://localhost:8080/users/profile', { headers: headers })
+            .map(function (res) { return res.json(); });
+    };
+    AuthService.prototype.guardarBanquete = function (newBanquete) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
+        this.loadToken();
+        headers.append('Authorization', this.authToken);
+        return this.http.post('http://localhost:8080/users/guardar-banquete', newBanquete, { headers: headers }).map(function (res) { return res.json(); });
     };
     AuthService.prototype.storeUSerData = function (token, user) {
         localStorage.setItem('id_token', token);
@@ -1625,50 +1648,50 @@ var PlatilloService = (function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
         headers.append('Authorization', this.authToken);
-        return this.http.get('http://13.59.166.130:8080/admin/entradas', { headers: headers }).map(function (res) { return res.json(); });
-        //return this.http.get('http://localhost:8080/admin/entradas', {headers: headers}).map(res => res.json());    
+        //return this.http.get('http://13.59.166.130:8080/admin/entradas', {headers: headers}).map(res => res.json());
+        return this.http.get('http://localhost:8080/admin/entradas', { headers: headers }).map(function (res) { return res.json(); });
     };
     PlatilloService.prototype.addEntrada = function (newEntrada) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
-        return this.http.post('http://13.59.166.130:8080/admin/crear-entrada', JSON.stringify(newEntrada), { headers: headers }).map(function (res) { return res.json(); });
-        //return this.http.post('http://localhost:8080/admin/crear-entrada', JSON.stringify(newEntrada), {headers: headers}).map(res => res.json());    
+        //return this.http.post('http://13.59.166.130:8080/admin/crear-entrada', JSON.stringify(newEntrada), {headers: headers}).map(res => res.json());
+        return this.http.post('http://localhost:8080/admin/crear-entrada', JSON.stringify(newEntrada), { headers: headers }).map(function (res) { return res.json(); });
     };
     PlatilloService.prototype.getSopas = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
         headers.append('Authorization', this.authToken);
-        return this.http.get('http://13.59.166.130:8080/admin/sopas', { headers: headers }).map(function (res) { return res.json(); });
-        //return this.http.get('http://localhost:8080/admin/sopas', {headers: headers}).map(res => res.json());
+        //return this.http.get('http://13.59.166.130:8080/admin/sopas', {headers: headers}).map(res => res.json());
+        return this.http.get('http://localhost:8080/admin/sopas', { headers: headers }).map(function (res) { return res.json(); });
     };
     PlatilloService.prototype.addSopa = function (newSopa) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
-        return this.http.post('http://13.59.166.130:8080/admin/crear-sopa', JSON.stringify(newSopa), { headers: headers }).map(function (res) { return res.json(); });
-        //return this.http.post('http://localhost:8080/admin/crear-sopa', JSON.stringify(newSopa), {headers: headers}).map(res => res.json());
+        //return this.http.post('http://13.59.166.130:8080/admin/crear-sopa', JSON.stringify(newSopa), {headers: headers}).map(res => res.json());
+        return this.http.post('http://localhost:8080/admin/crear-sopa', JSON.stringify(newSopa), { headers: headers }).map(function (res) { return res.json(); });
     };
     PlatilloService.prototype.getPlatosFuertes = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
         headers.append('Authorization', this.authToken);
-        return this.http.get('http://13.59.166.130:8080/admin/platos-fuertes', { headers: headers }).map(function (res) { return res.json(); });
-        //return this.http.get('http://localhost:8080/admin/platos-fuertes', {headers: headers}).map(res => res.json());
+        //return this.http.get('http://13.59.166.130:8080/admin/platos-fuertes', {headers: headers}).map(res => res.json());
+        return this.http.get('http://localhost:8080/admin/platos-fuertes', { headers: headers }).map(function (res) { return res.json(); });
     };
     PlatilloService.prototype.addPlatoFuerte = function (newPlatoFuerte) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
-        return this.http.post('http://13.59.166.130:8080/admin/crear-plato-fuerte', JSON.stringify(newPlatoFuerte), { headers: headers }).map(function (res) { return res.json(); });
-        //return this.http.post('http://localhost:8080/admin/crear-plato-fuerte', JSON.stringify(newPlatoFuerte), {headers: headers}).map(res => res.json());
+        //return this.http.post('http://13.59.166.130:8080/admin/crear-plato-fuerte', JSON.stringify(newPlatoFuerte), {headers: headers}).map(res => res.json());
+        return this.http.post('http://localhost:8080/admin/crear-plato-fuerte', JSON.stringify(newPlatoFuerte), { headers: headers }).map(function (res) { return res.json(); });
     };
     PlatilloService.prototype.deletePlatillo = function (id) {
-        return this.http.delete('http://13.59.166.130:8080/admin/platillo/' + id).map(function (res) { return res.json(); });
-        //return this.http.delete('http://localhost:8080/admin/platillo/'+id).map(res => res.json());
+        //return this.http.delete('http://13.59.166.130:8080/admin/platillo/'+id).map(res => res.json());
+        return this.http.delete('http://localhost:8080/admin/platillo/' + id).map(function (res) { return res.json(); });
     };
     //Token para autentificacion.
     PlatilloService.prototype.loadToken = function () {
