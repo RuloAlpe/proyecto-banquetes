@@ -296,7 +296,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/components/dashboard/dashboard.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-navbar></app-navbar>\n<div class=\"container\">\n    <div class=\"row\">\n        <div class=\"col-lg-8 col-lg-offset-2 col-md-8 offset-md-2 col-sm-12 col-md-8 col-md-offset-2\">\n            <div class=\"panel-group\" id=\"accordion\">\n                <div class=\"panel\">\n                    <div class=\"panel-heading  panel-custom\">\n                        <h2 class=\"panel-title\">\n                            <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse1\">\n                                Quieres crear una peticion de banquete? Da click aquí\n                            </a>\n                        </h2>\n                    </div>\n                    <div id=\"collapse1\" class=\"panel-collapse collapse\">\n                        <div class=\"panel-body\">\n                            <h1>Cotizacion de banquetes</h1>\n                            <!-- <p class=\"lead\"></p> -->\n                            <div class=\"text-center\">\n                                <form (ngSubmit)=\"crearPedido($event)\">\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"well\">\n                                            <h4>Seleccionar Entrada</h4>\n                                            <select [(ngModel)]=\"selectEntrada\" name=\"selectEntrada\" class=\"form-control\">\n                                                <option *ngFor=\"let entrada of entradas\" [ngValue]=\"entrada\">{{entrada.title}}</option>\n                                            </select>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"well\">\n                                            <h4>Seleccionar Entrada</h4>\n                                            <select [(ngModel)]=\"selectSopa\" name=\"selectSopa\" class=\"form-control\">\n                                                <option *ngFor=\"let sopa of sopas\" [ngValue]=\"sopa\">{{sopa.title}}</option>\n                                            </select>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"well\">\n                                            <h4>Seleccionar Entrada</h4>\n                                            <select [(ngModel)]=\"selectPlatoFuerte\" name=\"selectPlatoFuerte\" class=\"form-control\">\n                                                <option *ngFor=\"let platoFuerte of platosFuertes\" [ngValue]=\"platoFuerte\">{{platoFuerte.title}}</option>\n                                            </select>\n                                        </div>\n                                    </div>\n                                    <p>Cantidad de personas <input type=\"text\" [(ngModel)]=\"personas\" name=\"personas\"></p>\n                                    <p>Precio total <input type=\"text\" [(ngModel)]=\"precio\" name=\"precio\"></p>                                    \n                                    <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">                                    \n                                </form>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n\n                <div class=\"panel\">\n                    <div class=\"panel-heading  panel-custom-2\">\n                        <h4 class=\"panel-title\">\n                            <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse2\">\n                                Cotizaciones realizadas\n                            </a>\n                        </h4>\n                    </div>\n                    <div id=\"collapse2\" class=\"panel-collapse collapse  in\">\n                        <div class=\"panel-body\">       \n                            <div class=\"row\">\n                                <div class=\"col-md-12\">\n                                    <p *ngIf=\"banquetes\" class=\"alert alert-danger\">No se ha realizado ningun pedido</p>\n                                </div>     \n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n        </div>   \n    </div>\n</div>"
+module.exports = "<app-navbar></app-navbar>\n<div class=\"container\">\n    <div class=\"row\">\n        <div class=\"col-lg-8 col-lg-offset-2 col-md-8 offset-md-2 col-sm-12 col-md-8 col-md-offset-2\">\n            <div class=\"panel-group\" id=\"accordion\">\n                <div class=\"panel\">\n                    <div class=\"panel-heading  panel-custom\">\n                        <h2 class=\"panel-title\">\n                            <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse1\">\n                                Quieres crear una peticion de banquete? Da click aquí\n                            </a>\n                        </h2>\n                    </div>\n                    <div id=\"collapse1\" class=\"panel-collapse collapse\">\n                        <div class=\"panel-body\">\n                            <h1>Cotizacion de banquetes</h1>\n                            <!-- <p class=\"lead\"></p> -->\n                            <div class=\"text-center\">\n                                <form (ngSubmit)=\"crearPedido($event)\">\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"well\">\n                                            <h4>Seleccionar Entrada</h4>\n                                            <select [(ngModel)]=\"selectEntrada\" name=\"selectEntrada\" class=\"form-control\">\n                                                <option *ngFor=\"let entrada of entradas\" [ngValue]=\"entrada\">{{entrada.title}}</option>\n                                            </select>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"well\">\n                                            <h4>Seleccionar Entrada</h4>\n                                            <select [(ngModel)]=\"selectSopa\" name=\"selectSopa\" class=\"form-control\">\n                                                <option *ngFor=\"let sopa of sopas\" [ngValue]=\"sopa\">{{sopa.title}}</option>\n                                            </select>\n                                        </div>\n                                    </div>\n                                    <div class=\"col-sm-4\">\n                                        <div class=\"well\">\n                                            <h4>Seleccionar Entrada</h4>\n                                            <select [(ngModel)]=\"selectPlatoFuerte\" name=\"selectPlatoFuerte\" class=\"form-control\">\n                                                <option *ngFor=\"let platoFuerte of platosFuertes\" [ngValue]=\"platoFuerte\">{{platoFuerte.title}}</option>\n                                            </select>\n                                        </div>\n                                    </div>\n                                    <p>Cantidad de personas <input type=\"text\" [(ngModel)]=\"personas\" name=\"personas\"></p>\n                                    <p>Precio total <input type=\"text\" [(ngModel)]=\"precio\" name=\"precio\"></p>                                    \n                                    <input type=\"submit\" class=\"btn btn-primary\" value=\"Submit\">                                    \n                                </form>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n\n                <div class=\"panel\">\n                    <div class=\"panel-heading  panel-custom-2\">\n                        <h4 class=\"panel-title\">\n                            <a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#collapse2\">\n                                Cotizaciones realizadas\n                            </a>\n                        </h4>\n                    </div>\n                    <div id=\"collapse2\" class=\"panel-collapse collapse  in\">\n                        <div class=\"panel-body\">       \n                            <div class=\"row\">\n                                <div class=\"col-md-12\">\n                                    <p *ngIf=\"!banquetes\" class=\"alert alert-danger\">No se ha realizado ningun pedido</p>\n                                    <table *ngIf=\"banquetes\" class=\"table table-hover\">\n                                        <thead>\n                                            <tr>\n                                                <td>Entrada</td>\n                                                <td>Sopa</td>\n                                                <td>Plato Fuerte</td>\n                                            </tr>\n                                        </thead>\n                                        <tbody *ngFor=\"let banquete of banquetes\"> <!-- [routerLink]=\"['/transfer']\" [queryParams]=\"{ id: transfer.id }\" -->\n                                            <tr><!-- *ngFor=\"let entrada of banquete.entrada; let sopa of banquete.sopa; let platoFuerte of banquete.platoFuerte\" -->\n                                                <td>{{banquete.entrada[0].title}}</td>\n                                                <td>{{banquete.sopa[0].title}}</td>\n                                                <td>{{banquete.platoFuerte[0].title}}</td>\n                                            </tr>\n                                        </tbody>\n                                    </table>\n                                </div>     \n                            </div>\n                        </div>\n                    </div>\n                </div>\n\n            </div>\n        </div>   \n    </div>\n</div>"
 
 /***/ }),
 
@@ -324,7 +324,6 @@ var DashboardComponent = (function () {
     function DashboardComponent(platilloService, authService) {
         this.platilloService = platilloService;
         this.authService = authService;
-        this.banquetes = [];
     }
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -336,6 +335,12 @@ var DashboardComponent = (function () {
         });
         this.platilloService.getPlatosFuertes().subscribe(function (platosFuertes) {
             _this.platosFuertes = platosFuertes;
+        });
+        this.authService.getBanquetes().subscribe(function (banquetes) {
+            console.log(banquetes);
+            if (banquetes.length > 0) {
+                _this.banquetes = banquetes;
+            }
         });
     };
     DashboardComponent.prototype.ngDoCheck = function () {
@@ -353,9 +358,9 @@ var DashboardComponent = (function () {
         var numPersonas = this.personas.toString();
         var numPrecio = this.precio.toString();
         var newBanquete = {
-            entrada: this.selectEntrada._id,
-            sopa: this.selectSopa._id,
-            platoFuerte: this.selectPlatoFuerte._id,
+            entrada: this.selectEntrada,
+            sopa: this.selectSopa,
+            platoFuerte: this.selectPlatoFuerte,
             personas: parseInt(numPersonas),
             precio: parseInt(numPrecio),
             mesas: 5,
@@ -363,6 +368,7 @@ var DashboardComponent = (function () {
         };
         this.authService.guardarBanquete(newBanquete).subscribe(function (nuevoBanquete) {
             _this.banquetes.push(nuevoBanquete);
+            window.location.reload();
         });
     };
     return DashboardComponent;
@@ -1587,7 +1593,15 @@ var AuthService = (function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
         headers.append('Authorization', this.authToken);
+        //return this.http.get('http://13.59.166.130:8080/users/guardar-banquete', {headers: headers}).map(res => res.json());
         return this.http.post('http://localhost:8080/users/guardar-banquete', newBanquete, { headers: headers }).map(function (res) { return res.json(); });
+    };
+    AuthService.prototype.getBanquetes = function () {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
+        this.loadToken();
+        headers.append('Authorization', this.authToken);
+        //return this.http.get('http://13.59.166.130:8080/users/banquetes', {headers: headers}).map(res => res.json());
+        return this.http.get('http://localhost:8080/users/banquetes', { headers: headers }).map(function (res) { return res.json(); });
     };
     AuthService.prototype.storeUSerData = function (token, user) {
         localStorage.setItem('id_token', token);

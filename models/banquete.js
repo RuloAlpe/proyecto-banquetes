@@ -1,18 +1,27 @@
 var mongoose = require('mongoose');
 var config = require('../config/database');
 var Platillo = require('./platillo');
+var User = require('./user');
+
+var PlatilloSchema = mongoose.model('Platillo').schema;
 
 //Banquete schema
 var BanqueteSchema = mongoose.Schema({
-    entrada: [{
+    id_usuario: {
+        type: mongoose.Schema.Types.ObjectId, ref: 'User'
+    },
+    entrada: [PlatilloSchema],
+    sopa: [PlatilloSchema],
+    platoFuerte: [PlatilloSchema],
+    /*entrada:{
         type: mongoose.Schema.Types.ObjectId, ref: 'Platillo'
-    }],
-    sopa: [{
+    },*/
+    /*sopa:{
         type: mongoose.Schema.Types.ObjectId, ref: 'Platillo'
-    }],
-    platoFuerte: [{
+    },
+    platoFuerte:{
         type: mongoose.Schema.Types.ObjectId, ref: 'Platillo'
-    }],
+    },*/
     personas: {
         required: true,
         type: Number
@@ -32,10 +41,10 @@ var BanqueteSchema = mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    fch_entrega: {
+    /*fch_entrega: {
         required: false,
         type: Date
-    },
+    },*/
 });
 
 var Banquete = module.exports = mongoose.model('Banquete', BanqueteSchema);

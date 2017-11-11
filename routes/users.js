@@ -6,6 +6,7 @@ var jwt = require('jsonwebtoken');
 var User = require('../models/user');
 var config = require('../config/database');
 var Banquete = require('../models/banquete');
+var Platillo = require('../models/platillo')
 
 router.post('/register', (req, res, next) => {
     let newUser = new User({
@@ -66,9 +67,10 @@ router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res
 
 //guardar banquete en la BD
 router.post('/guardar-banquete', passport.authenticate('jwt', {session: false}), (req, res, next) => {
-    //console.log(req.body.precio);
+    //console.log(req.user);
     
     let newBanquete = new Banquete({
+        id_usuario: req.user._id,
         entrada: req.body.entrada,
         sopa: req.body.sopa,
         platoFuerte: req.body.platoFuerte,
@@ -85,6 +87,19 @@ router.post('/guardar-banquete', passport.authenticate('jwt', {session: false}),
         res.json({
             'error': 'Bad Data. Guardar banquete '+err
         });
+    });
+});
+
+router.get('/banquetes', passport.authenticate('jwt', {session: false}), (req, res, next) => {
+    Banquete.find({id_usuario:req.user._id}, (err, banquetes) => {
+        if(err){
+            res.status(400);
+            res.json({
+                'error': 'Bad Data. Traer todos los banquetes'
+            });
+        }else{
+            res.json(banquetes);
+        }
     });
 });
 
