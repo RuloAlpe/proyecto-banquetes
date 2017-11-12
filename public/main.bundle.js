@@ -1626,7 +1626,7 @@ var AuthService = (function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
         headers.append('Authorization', this.authToken);
-        return this.http.get('http://13.59.166.130:8080/users/guardar-banquete', { headers: headers }).map(function (res) { return res.json(); });
+        return this.http.post('http://13.59.166.130:8080/users/guardar-banquete', { headers: headers }).map(function (res) { return res.json(); });
         //return this.http.post('http://localhost:8080/users/guardar-banquete', newBanquete, {headers}).map(res => res.json());
     };
     AuthService.prototype.getBanquetes = function () {
