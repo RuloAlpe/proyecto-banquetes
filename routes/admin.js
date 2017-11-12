@@ -5,6 +5,7 @@ var jwt = require('jsonwebtoken');
 
 var User = require('../models/user');
 var Platillo = require('../models/platillo');
+var Banquete = require('../models/banquete');
 
 var config = require('../config/database');
 
@@ -63,6 +64,30 @@ router.post('/authenticate', (req, res, next) => {
 
 router.get('/profile', passport.authenticate('jwt', {session: false}), (req, res, next) => {
     res.json({user: req.user});
+});
+
+router.get('/users', passport.authenticate('jwt', {session: false}), (req, res, next) => {
+    User.find({admin:false}, (err, users) =>{
+        if(err){
+            res.status(400);
+            res.json({'error': 'Bad Data. Traer usuarios'});
+        }else{
+            res.json(users);
+        }
+    });
+});
+
+router.get('/banquetes', passport.authenticate('jwt', {session: false}), (req, res, next) => {
+    Banquete.find({}, (err, banquetes) => {
+        if(err){
+            res.status(400);
+            res.json({
+                'error': 'Bad Data. Traer todos los banquetes'
+            });
+        }else{
+            res.json(banquetes);
+        }
+    });
 });
 
 //CRUD DE PLATILLOS EN GENERAL

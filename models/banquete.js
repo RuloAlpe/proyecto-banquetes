@@ -16,12 +16,6 @@ var BanqueteSchema = mongoose.Schema({
     /*entrada:{
         type: mongoose.Schema.Types.ObjectId, ref: 'Platillo'
     },*/
-    /*sopa:{
-        type: mongoose.Schema.Types.ObjectId, ref: 'Platillo'
-    },
-    platoFuerte:{
-        type: mongoose.Schema.Types.ObjectId, ref: 'Platillo'
-    },*/
     personas: {
         required: true,
         type: Number
@@ -41,10 +35,13 @@ var BanqueteSchema = mongoose.Schema({
         type: Date,
         default: Date.now
     },
+    direccion:{
+        type: String
+    },
     /*fch_entrega: {
         required: false,
         type: Date
-    },*/
+    }*/
 });
 
 var Banquete = module.exports = mongoose.model('Banquete', BanqueteSchema);

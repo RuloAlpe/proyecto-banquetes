@@ -78,6 +78,7 @@ router.post('/guardar-banquete', passport.authenticate('jwt', {session: false}),
         precio: req.body.precio,
         mesas: req.body.mesas,
         sillas: req.body.sillas,
+        direccion: req.body.direccion
         //fch_entrega: new Date(req.body.fch_entrega)
     });
     newBanquete.save().then(function(banquete){
