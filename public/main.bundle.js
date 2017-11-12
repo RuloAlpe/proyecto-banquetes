@@ -1490,45 +1490,45 @@ var AuthAdminService = (function () {
     AuthAdminService.prototype.registerUser = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
-        //return this.http.post('http://13.59.166.130:8080/admin/register-qwerty123-admin', user, {headers})
-        //  .map(res => res.json());
-        return this.http.post('http://localhost:8080/admin/register-qwerty123-admin', user, { headers: headers })
+        return this.http.post('http://13.59.166.130:8080/admin/register-qwerty123-admin', user, { headers: headers })
             .map(function (res) { return res.json(); });
+        //return this.http.post('http://localhost:8080/admin/register-qwerty123-admin', user, {headers})
+        //  .map(res => res.json());
     };
     AuthAdminService.prototype.authenticateAdmin = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
-        //return this.http.post('http://13.59.166.130:8080/admin/authenticate', user, {headers})
-        //  .map(res => res.json());
-        return this.http.post('http://localhost:8080/admin/authenticate', user, { headers: headers })
+        return this.http.post('http://13.59.166.130:8080/admin/authenticate', user, { headers: headers })
             .map(function (res) { return res.json(); });
+        //return this.http.post('http://localhost:8080/admin/authenticate', user, {headers})
+        //  .map(res => res.json());
     };
     AuthAdminService.prototype.getProfile = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
-        //return this.http.get('http://13.59.166.130:8080/admin/profile', {headers})
-        //  .map(res => res.json());
-        return this.http.get('http://localhost:8080/admin/profile', { headers: headers })
+        return this.http.get('http://13.59.166.130:8080/admin/profile', { headers: headers })
             .map(function (res) { return res.json(); });
+        //return this.http.get('http://localhost:8080/admin/profile', {headers})
+        //  .map(res => res.json());
     };
     AuthAdminService.prototype.getUsuarios = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
-        //return this.http.get('http://13.59.166.130:8080/admin/users', {headers})
-        //  .map(res => res.json());
-        return this.http.get('http://localhost:8080/admin/users', { headers: headers })
+        return this.http.get('http://13.59.166.130:8080/admin/users', { headers: headers })
             .map(function (res) { return res.json(); });
+        //return this.http.get('http://localhost:8080/admin/users', {headers})
+        //  .map(res => res.json());
     };
     AuthAdminService.prototype.getBanquetes = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
         headers.append('Authorization', this.authToken);
-        //return this.http.get('http://13.59.166.130:8080/admin/banquetes', {headers: headers}).map(res => res.json());
-        return this.http.get('http://localhost:8080/admin/banquetes', { headers: headers }).map(function (res) { return res.json(); });
+        return this.http.get('http://13.59.166.130:8080/admin/banquetes', { headers: headers }).map(function (res) { return res.json(); });
+        //return this.http.get('http://localhost:8080/admin/banquetes', {headers: headers}).map(res => res.json());
     };
     AuthAdminService.prototype.storeAdminData = function (token, user) {
         var valorAdmin = true;
@@ -1599,42 +1599,42 @@ var AuthService = (function () {
     AuthService.prototype.registerUser = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
-        //return this.http.post('http://13.59.166.130:8080/users/register', user, {headers})
-        //  .map(res => res.json());
-        return this.http.post('http://localhost:8080/users/register', user, { headers: headers })
+        return this.http.post('http://13.59.166.130:8080/users/register', user, { headers: headers })
             .map(function (res) { return res.json(); });
+        //return this.http.post('http://localhost:8080/users/register', user, {headers})
+        //  .map(res => res.json());
     };
     AuthService.prototype.authenticateUser = function (user) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         headers.append('Content-Type', 'application/json');
-        //return this.http.post('http://13.59.166.130:8080/users/authenticate', user, {headers})
-        //  .map(res => res.json());
-        return this.http.post('http://localhost:8080/users/authenticate', user, { headers: headers })
+        return this.http.post('http://13.59.166.130:8080/users/authenticate', user, { headers: headers })
             .map(function (res) { return res.json(); });
+        //return this.http.post('http://localhost:8080/users/authenticate', user, {headers})
+        //  .map(res => res.json());
     };
     AuthService.prototype.getProfile = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
-        //return this.http.get('http://13.59.166.130:8080/users/profile', {headers})
-        //  .map(res => res.json());
-        return this.http.get('http://localhost:8080/users/profile', { headers: headers })
+        return this.http.get('http://13.59.166.130:8080/users/profile', { headers: headers })
             .map(function (res) { return res.json(); });
+        //return this.http.get('http://localhost:8080/users/profile', {headers})
+        //  .map(res => res.json());
     };
     AuthService.prototype.guardarBanquete = function (newBanquete) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
         headers.append('Authorization', this.authToken);
-        //return this.http.get('http://13.59.166.130:8080/users/guardar-banquete', {headers: headers}).map(res => res.json());
-        return this.http.post('http://localhost:8080/users/guardar-banquete', newBanquete, { headers: headers }).map(function (res) { return res.json(); });
+        return this.http.get('http://13.59.166.130:8080/users/guardar-banquete', { headers: headers }).map(function (res) { return res.json(); });
+        //return this.http.post('http://localhost:8080/users/guardar-banquete', newBanquete, {headers}).map(res => res.json());
     };
     AuthService.prototype.getBanquetes = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
         headers.append('Authorization', this.authToken);
-        //return this.http.get('http://13.59.166.130:8080/users/banquetes', {headers: headers}).map(res => res.json());
-        return this.http.get('http://localhost:8080/users/banquetes', { headers: headers }).map(function (res) { return res.json(); });
+        return this.http.get('http://13.59.166.130:8080/users/banquetes', { headers: headers }).map(function (res) { return res.json(); });
+        //return this.http.get('http://localhost:8080/users/banquetes', {headers: headers}).map(res => res.json());
     };
     AuthService.prototype.storeUSerData = function (token, user) {
         localStorage.setItem('id_token', token);
@@ -1695,50 +1695,50 @@ var PlatilloService = (function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
         headers.append('Authorization', this.authToken);
-        //return this.http.get('http://13.59.166.130:8080/admin/entradas', {headers: headers}).map(res => res.json());
-        return this.http.get('http://localhost:8080/admin/entradas', { headers: headers }).map(function (res) { return res.json(); });
+        return this.http.get('http://13.59.166.130:8080/admin/entradas', { headers: headers }).map(function (res) { return res.json(); });
+        //return this.http.get('http://localhost:8080/admin/entradas', {headers: headers}).map(res => res.json());    
     };
     PlatilloService.prototype.addEntrada = function (newEntrada) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
-        //return this.http.post('http://13.59.166.130:8080/admin/crear-entrada', JSON.stringify(newEntrada), {headers: headers}).map(res => res.json());
-        return this.http.post('http://localhost:8080/admin/crear-entrada', JSON.stringify(newEntrada), { headers: headers }).map(function (res) { return res.json(); });
+        return this.http.post('http://13.59.166.130:8080/admin/crear-entrada', JSON.stringify(newEntrada), { headers: headers }).map(function (res) { return res.json(); });
+        //return this.http.post('http://localhost:8080/admin/crear-entrada', JSON.stringify(newEntrada), {headers: headers}).map(res => res.json());    
     };
     PlatilloService.prototype.getSopas = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
         headers.append('Authorization', this.authToken);
-        //return this.http.get('http://13.59.166.130:8080/admin/sopas', {headers: headers}).map(res => res.json());
-        return this.http.get('http://localhost:8080/admin/sopas', { headers: headers }).map(function (res) { return res.json(); });
+        return this.http.get('http://13.59.166.130:8080/admin/sopas', { headers: headers }).map(function (res) { return res.json(); });
+        //return this.http.get('http://localhost:8080/admin/sopas', {headers: headers}).map(res => res.json());
     };
     PlatilloService.prototype.addSopa = function (newSopa) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
-        //return this.http.post('http://13.59.166.130:8080/admin/crear-sopa', JSON.stringify(newSopa), {headers: headers}).map(res => res.json());
-        return this.http.post('http://localhost:8080/admin/crear-sopa', JSON.stringify(newSopa), { headers: headers }).map(function (res) { return res.json(); });
+        return this.http.post('http://13.59.166.130:8080/admin/crear-sopa', JSON.stringify(newSopa), { headers: headers }).map(function (res) { return res.json(); });
+        //return this.http.post('http://localhost:8080/admin/crear-sopa', JSON.stringify(newSopa), {headers: headers}).map(res => res.json());
     };
     PlatilloService.prototype.getPlatosFuertes = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
         headers.append('Authorization', this.authToken);
-        //return this.http.get('http://13.59.166.130:8080/admin/platos-fuertes', {headers: headers}).map(res => res.json());
-        return this.http.get('http://localhost:8080/admin/platos-fuertes', { headers: headers }).map(function (res) { return res.json(); });
+        return this.http.get('http://13.59.166.130:8080/admin/platos-fuertes', { headers: headers }).map(function (res) { return res.json(); });
+        //return this.http.get('http://localhost:8080/admin/platos-fuertes', {headers: headers}).map(res => res.json());
     };
     PlatilloService.prototype.addPlatoFuerte = function (newPlatoFuerte) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["Headers"]();
         this.loadToken();
         headers.append('Authorization', this.authToken);
         headers.append('Content-Type', 'application/json');
-        //return this.http.post('http://13.59.166.130:8080/admin/crear-plato-fuerte', JSON.stringify(newPlatoFuerte), {headers: headers}).map(res => res.json());
-        return this.http.post('http://localhost:8080/admin/crear-plato-fuerte', JSON.stringify(newPlatoFuerte), { headers: headers }).map(function (res) { return res.json(); });
+        return this.http.post('http://13.59.166.130:8080/admin/crear-plato-fuerte', JSON.stringify(newPlatoFuerte), { headers: headers }).map(function (res) { return res.json(); });
+        //return this.http.post('http://localhost:8080/admin/crear-plato-fuerte', JSON.stringify(newPlatoFuerte), {headers: headers}).map(res => res.json());
     };
     PlatilloService.prototype.deletePlatillo = function (id) {
-        //return this.http.delete('http://13.59.166.130:8080/admin/platillo/'+id).map(res => res.json());
-        return this.http.delete('http://localhost:8080/admin/platillo/' + id).map(function (res) { return res.json(); });
+        return this.http.delete('http://13.59.166.130:8080/admin/platillo/' + id).map(function (res) { return res.json(); });
+        //return this.http.delete('http://localhost:8080/admin/platillo/'+id).map(res => res.json());
     };
     //Token para autentificacion.
     PlatilloService.prototype.loadToken = function () {
